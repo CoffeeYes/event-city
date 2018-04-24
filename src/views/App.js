@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
 import '../stylesheets/App.css';
-import searchBar from './search.js'
+import test from './test'
 
 class App extends Component {
   render() {
-    return (
-        <searchBar />
-    );
+    return(
+      <test />
+    )
   }
 }
 
