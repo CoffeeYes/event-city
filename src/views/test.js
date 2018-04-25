@@ -10,4 +10,4 @@ class Test extends Component {
   }
 }
 
-export default test;
+export default Test;
