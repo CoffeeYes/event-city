@@ -4,7 +4,7 @@ class SearchBar extends Component {
   render() {
     return(
       <div className="searchbar">
-        <input className="search-input" />
+        <input onChange={this.props.handleChange} className="search-input" />
       </div>
     )
   }
