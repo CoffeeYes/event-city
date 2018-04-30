@@ -6,10 +6,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'searchText' : ''
+      'searchText' : '',
+      'test_value_get': ''
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
+  }
+
+  componentDidMount() {
+    fetch('/users')
+      .then( res => res.json())
+      .then( data => this.setState({'test_value_get' : data}))
   }
 
   updateSearchText(event) {
