@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount() {
     fetch('/api/test')
       .then( res => res.json())
-      .then( data => this.setState({'test_value_get' : data.test_value}))
+      .then( data => this.setState({'test_value_get' : data.test_key}))
   }
 
   updateSearchText(event) {
