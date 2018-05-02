@@ -6,4 +6,10 @@ router.get('/test', function(req, res, next) {
     res.send({test_key : 'test_value'})
 });
 
+router.get('/cities',function(req,res,next) {
+  console.log(req)
+  var query = req.query
+  res.send({query_text: query})
+})
+
 module.exports = router;

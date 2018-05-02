@@ -20,7 +20,11 @@ class App extends Component {
   }
 
   updateSearchText(event) {
-    this.setState({'searchText' : event.target.value})
+    this.setState({'searchText' : event.target.value},function() {
+      fetch('/api/cities?query=' + this.state.searchText)
+        .then( res => res.json())
+        .then( data => this.setState({'test_value_get' : data.query_text}))
+    })
   }
 
   render() {
