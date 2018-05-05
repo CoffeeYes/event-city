@@ -11,8 +11,9 @@ router.get('/test', function(req, res, next) {
 router.get('/cities',function(req,res,next) {
   var query = req.query
   res.send({query_text  : query})
-  mClient.connect(connect.mongo.url,function(error,database) {
+  mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;
+    var database = client.db('pinterest-clone')
     database.collection('cities').find({id : query}).toArray(function(error,data) {
       if(error)throw error;
       console.log(data)
