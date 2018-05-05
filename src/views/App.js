@@ -7,7 +7,8 @@ class App extends Component {
     super(props);
     this.state = {
       'searchText' : '',
-      'test_value_get': ''
+      'test_value_get': '',
+      'city_arr_test' : []
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -23,7 +24,7 @@ class App extends Component {
     this.setState({'searchText' : event.target.value},function() {
       fetch('/api/cities?query=' + this.state.searchText)
         .then( res => res.json())
-        .then( data => this.setState({'test_value_get' : data.query_text}))
+        .then( data => this.setState({'city_arr_test' : data}))
     })
   }
 
