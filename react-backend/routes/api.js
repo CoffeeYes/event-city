@@ -10,15 +10,17 @@ router.get('/test', function(req, res, next) {
 });
 
 router.get('/cities',function(req,res,next) {
-  var query = String(req.query.query)
-  console.log(query)
+  var query = String(req.query.query).toLowerCase()
   mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;
     var database = client.db('pinterest-clone')
     database.collection('cities').find({city : {"$regex": query}}).toArray(function(error,data) {
       if(error)throw error;
-      console.log(data)
-      res.send({data: data})
+      var city_arr = [];
+      for(var item in data) {
+        city_arr.push(data[item].city)
+      }
+      res.send({data: city_arr})
     })
   })
 })
