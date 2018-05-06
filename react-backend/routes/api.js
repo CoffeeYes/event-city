@@ -15,7 +15,7 @@ router.get('/cities',function(req,res,next) {
   mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;
     var database = client.db('pinterest-clone')
-    database.collection('cities').find({city : query}).toArray(function(error,data) {
+    database.collection('cities').find({city : {"$regex": query}}).toArray(function(error,data) {
       if(error)throw error;
       console.log(data)
       res.send({data: data})
