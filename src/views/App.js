@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../stylesheets/App.css';
-import SearchBar from './searchbar'
+import SearchBar from './searchbar';
+import SearchResult from './searchResult'
 
 class App extends Component {
   constructor(props) {
@@ -28,10 +29,21 @@ class App extends Component {
     })
   }
 
+  render_results() {
+    this.state.city_arr_test.map(function(city) {
+      return (
+        <li>{city}</li>
+      )
+    })
+  }
+
   render() {
     return(
       <div>
         <SearchBar handleChange={this.updateSearchText} value={this.state.searchText}/>
+        <ul>
+          {this.render_results()}
+        </ul>
       </div>
     )
   }
