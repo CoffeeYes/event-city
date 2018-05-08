@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
-function SearchResult(props) {
+  class SearchResult extends Component {
+  render() {
     return(
-      <div className="searchresult">
-        <p>{props.value}</p>
-      </div>
+        <ul>
+          {this.props.list.map(function(city) {
+            return <li>{city}</li>;
+          })}
+        </ul>
     )
+  }
   }
 
 
