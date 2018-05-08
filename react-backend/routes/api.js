@@ -20,7 +20,7 @@ router.get('/cities',function(req,res,next) {
       for(var item in data) {
         city_arr.push(data[item].city)
       }
-      res.send({data: city_arr})
+      res.send(city_arr)
     })
   })
 })

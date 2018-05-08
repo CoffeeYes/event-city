@@ -25,7 +25,7 @@ class App extends Component {
     this.setState({'searchText' : event.target.value},function() {
       fetch('/api/cities?query=' + this.state.searchText)
         .then( res => res.json())
-        .then( data => this.setState({'city_arr_test' : data}))
+        .then( data => this.setState({city_arr_test : data}))
     })
   }
 
