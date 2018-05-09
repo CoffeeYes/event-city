@@ -32,8 +32,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <SearchBar handleChange={this.updateSearchText} value={this.state.searchText}/>
-        <SearchResult list={this.state.city_arr_test} />
+        <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test}/>
       </div>
     )
   }
