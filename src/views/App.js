@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../stylesheets/App.css';
 import SearchBar from './searchbar';
-import SearchResult from './searchResult'
 
 class App extends Component {
   constructor(props) {
