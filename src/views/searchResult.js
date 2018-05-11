@@ -5,7 +5,11 @@ import React, { Component } from 'react';
     return(
         <ul>
           {this.props.list.map(function(city,index) {
-            return <li key={index} className="result">{city}</li>;
+            return (
+              <a href={city}>
+                <li key={index} className="result">{city}</li>
+              </a>
+            )
           })}
         </ul>
     )

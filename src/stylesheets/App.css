@@ -48,6 +48,11 @@ ul {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .result {
   height: 5vh;
   border: 1px solid black;
