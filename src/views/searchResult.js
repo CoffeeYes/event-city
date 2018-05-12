@@ -4,10 +4,10 @@ import React, { Component } from 'react';
   render() {
     return(
         <ul>
-          {this.props.list.map(function(city,index) {
+          {this.props.list.map(function(item,index) {
             return (
-              <a href={city}>
-                <li key={index} className="result">{city}</li>
+              <a href={item.city} key={index}>
+                <li key={index} className="result">{item.city}, {item.country}</li>
               </a>
             )
           })}
