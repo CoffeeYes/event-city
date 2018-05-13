@@ -6,7 +6,7 @@ import React, { Component } from 'react';
         <ul>
           {this.props.list.map(function(item,index) {
             return (
-              <a href={item.city} key={index}>
+              <a href={"/city/" + item.city} key={index}>
                 <li key={index} className="result">{item.city}, {item.country}</li>
               </a>
             )
