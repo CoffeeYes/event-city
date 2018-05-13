@@ -7,11 +7,13 @@ var bodyParser = require('body-parser');
 
 //include routes
 var api = require('./routes/api');
+var city = require('./routes/city')
 
 var app = express();
 
 //routing
 app.use('/api',api)
+app.use('/city/',city)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
