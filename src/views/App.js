@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../stylesheets/App.css';
 import SearchBar from './searchbar';
 
+
 class App extends Component {
   constructor(props) {
     super(props);
