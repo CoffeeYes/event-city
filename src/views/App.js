@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../stylesheets/App.css';
 import SearchBar from './searchbar';
+import {Route} from 'react-router-dom';
+import SearchResult from './searchResult'
 
 
 class App extends Component {
@@ -33,6 +35,9 @@ class App extends Component {
     return(
       <div>
         <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test}/>
+        <Route path='/city/*' render={(props) => (
+          <p> city</p>
+        )}/>
       </div>
     )
   }

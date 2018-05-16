@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route, Link} from 'react-router-dom';
 
   class SearchResult extends Component {
   render() {
@@ -6,9 +7,9 @@ import React, { Component } from 'react';
         <ul>
           {this.props.list.map(function(item,index) {
             return (
-              <a href={"/city/" + item.city} key={index}>
+              <Link to={"/city/" + item.city} key={index}>
                 <li key={index} className="result">{item.city}, {item.country}</li>
-              </a>
+              </Link>
             )
           })}
         </ul>
