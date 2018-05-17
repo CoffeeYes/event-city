@@ -7,9 +7,11 @@ import {Route, Link} from 'react-router-dom';
         <ul>
           {this.props.list.map(function(item,index) {
             return (
-              <Link to={"/city/" + item.city} key={index}>
-                <li key={index} className="result">{item.city}, {item.country}</li>
-              </Link>
+              <Route path='/' key={index} render= {(props) => (
+                <Link to={"/city/" + item.city} key={index}>
+                  <li key={index} className="result">{item.city}, {item.country}</li>
+                </Link>
+              )}/>
             )
           })}
         </ul>

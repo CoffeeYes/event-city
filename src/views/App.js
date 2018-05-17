@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       'searchText' : '',
       'test_value_get': '',
-      'city_arr_test' : []
+      'city_arr_test' : [],
+      'loading' : false
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -25,6 +26,12 @@ class App extends Component {
 
   updateSearchText(event) {
     this.setState({'searchText' : event.target.value},function() {
+      if(this.state.searchText.trim() !== '') {
+        this.setState({'loading' : true})
+      }
+      else {
+        this.setState({'loading' : false})
+      }
       fetch('/api/cities?query=' + this.state.searchText)
         .then( res => res.json())
         .then( data => this.setState({city_arr_test : data}))
@@ -36,7 +43,7 @@ class App extends Component {
       <div>
         <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test}/>
         <Route path='/city/*' render={(props) => (
-          <p> city</p>
+          <p>city</p>
         )}/>
       </div>
     )
