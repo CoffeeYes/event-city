@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../stylesheets/App.css';
 import SearchBar from './searchbar';
 import {Route} from 'react-router-dom';
-import SearchResult from './searchResult'
+import SearchResult from './searchResult';
 
 
 class App extends Component {
