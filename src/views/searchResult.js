@@ -5,10 +5,12 @@ import {Link} from 'react-router-dom';
   render() {
     return(
         <ul>
-          {this.props.list.map(function(item,index) {
+          {this.props.list.map((item,index) => {
             return (
                 <Link to={"/city/" + item.city} key={index}>
-                  <li key={index} className="result">{item.city}, {item.country}</li>
+                  <a onClick={this.props.handleClick}>
+                    <li key={index} className="result">{item.city}, {item.country}</li>
+                  </a>
                 </Link>
             )
           })}

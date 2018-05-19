@@ -16,6 +16,7 @@ class App extends Component {
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -38,10 +39,13 @@ class App extends Component {
     })
   }
 
+  handleClick(event) {
+    this.setState({'city_arr_test' : []})
+  }
   render() {
     return(
       <div>
-        <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test}/>
+        <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick }/>
         <Route path='/city/*' render={(props) => (
           <p>city</p>
         )}/>
