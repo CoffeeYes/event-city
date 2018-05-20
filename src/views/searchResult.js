@@ -7,10 +7,8 @@ import {Link} from 'react-router-dom';
         <ul>
           {this.props.list.map((item,index) => {
             return (
-                <Link to={"/city/" + item.city} key={index}>
-                  <a onClick={this.props.handleClick}>
+                <Link to={"/city/" + item.city} key={index} onClick={this.props.handleClick}>
                     <li key={index} className="result">{item.city}, {item.country}</li>
-                  </a>
                 </Link>
             )
           })}
