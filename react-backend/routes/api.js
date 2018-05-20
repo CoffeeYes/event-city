@@ -17,8 +17,8 @@ router.get('/cities',function(req,res,next) {
     database.collection('cities').find({city : {"$regex": query}}).toArray(function(error,data) {
       if(error)throw error;
       var city_arr = [];
-      for(var item in data) {
-        city_arr.push({"country": data[item].country,"city" : data[item].city})
+      for(var i = 0; i< 21; i++) {
+        city_arr.push({"country": data[i].country,"city" : data[i].city})
       }
       res.send(city_arr)
     })
