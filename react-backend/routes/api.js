@@ -27,4 +27,16 @@ router.get('/cities',function(req,res,next) {
   })
 })
 
+router.get('/city/*',function(req,res,next) {
+  var city = decodeURI(req.url.split('/city/')[1]);
+  mClient.connect(connect.mongo.url,function(error,client) {
+    if(error)throw error;
+    var database = client.db('pinterest-clone');
+    database.collection('cities').find({'city': city}).toArray(function(error,data) {
+      if(error)throw error;
+      res.send(data[0].events)
+    })
+  })
+})
+
 module.exports = router;
