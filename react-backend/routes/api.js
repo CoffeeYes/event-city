@@ -10,7 +10,7 @@ router.get('/test', function(req, res, next) {
 });
 
 router.get('/cities',function(req,res,next) {
-  var query = String(req.query.query).toLowerCase()
+  var query = String(req.query.query)
   mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;
     var database = client.db('pinterest-clone')

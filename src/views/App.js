@@ -46,7 +46,7 @@ class App extends Component {
       var city = window.location.href.split('/city/')[1]
       this.setState({'city' : city},function() {
         fetch('/api/city/' + this.state.city)
-          .then( res => res.json)
+          .then( res => res.json())
           .then( data => this.setState({'city_events' : data}))
       })
     })
@@ -56,7 +56,7 @@ class App extends Component {
       <div>
         <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick }/>
         <Route path='/city/*' render={(props) => (
-          <p>{this.state.city_events}</p>
+          <p>Test</p>
         )}/>
       </div>
     )
