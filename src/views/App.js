@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../stylesheets/App.css';
 import SearchBar from './searchbar';
 import {Route} from 'react-router-dom';
-import SearchResult from './searchResult';
+import EventResult from './eventresult';
 
 
 class App extends Component {
@@ -56,7 +56,7 @@ class App extends Component {
       <div>
         <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick }/>
         <Route path='/city/*' render={(props) => (
-          <p>Test</p>
+          <EventResult list={this.state.city_events} />
         )}/>
       </div>
     )
