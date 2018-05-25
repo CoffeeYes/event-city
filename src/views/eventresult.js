@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
   class EventResult extends Component {
   render() {
     return(
+      <div className="event-container">
         <ul>
           {this.props.list.map((item,index) => {
             return (
@@ -13,6 +14,7 @@ import {Link} from 'react-router-dom';
             )
           })}
         </ul>
+      </div>
     )
   }
   }
