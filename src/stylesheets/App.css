@@ -72,3 +72,9 @@ a {
   display: flex;
   justify-content: center;
 }
+
+.event {
+  text-align: center;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}

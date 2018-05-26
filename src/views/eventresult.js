@@ -9,7 +9,11 @@ import {Link} from 'react-router-dom';
           {this.props.list.map((item,index) => {
             return (
                 <Link to={"/event/" + item.code} key={index}>
-                    <li key={index} className="result">{item.name}, {item.location}</li>
+                    <div className="event">
+                      <h2>{item.name} - {item.location}</h2>
+                      <p>{item.time}</p>
+                      <p>{item.going} going</p>
+                    </div>
                 </Link>
             )
           })}
