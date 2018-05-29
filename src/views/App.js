@@ -14,7 +14,8 @@ class App extends Component {
       'city_arr_test' : [],
       'loading' : false,
       'city' : '',
-      'city_events' : []
+      'city_events' : [],
+      'event_test' : ''
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -51,12 +52,19 @@ class App extends Component {
       })
     })
   }
+
+  handleEventClick(event,props) {
+    fetch('/event/')
+      .then(res => res.json())
+      .then( data => this.setState({'event_test' : data}))
+  }
+
   render() {
     return(
       <div>
         <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick }/>
         <Route path='/city/*' render={(props) => (
-          <EventResult list={this.state.city_events} />
+          <EventResult list={this.state.city_events} handleClick={this.handleEventClick}/>
         )}/>
       </div>
     )

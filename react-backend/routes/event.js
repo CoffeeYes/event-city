@@ -6,7 +6,7 @@ var Oid = require('mongodb').ObjectID;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    
+    res.send({event_test : 'event'})
 });
 
 module.exports = router;
