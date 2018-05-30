@@ -19,7 +19,8 @@ class App extends Component {
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+    this.handleEventClick = this.handleEventClick.bind(this);
   }
 
   componentDidMount() {
@@ -56,7 +57,7 @@ class App extends Component {
   handleEventClick(event,props) {
     fetch('/event/')
       .then(res => res.json())
-      .then( data => this.setState({'event_test' : data}))
+      .then( data => this.setState({'event_test' : data.event_test}))
   }
 
   render() {
