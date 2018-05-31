@@ -3,7 +3,9 @@ import '../stylesheets/App.css';
 import SearchBar from './searchbar';
 import {Route} from 'react-router-dom';
 import EventResult from './eventresult';
+import createBrowserHistory from 'history/createBrowserHistory'
 
+const history = createBrowserHistory()
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +17,8 @@ class App extends Component {
       'loading' : false,
       'city' : '',
       'city_events' : [],
-      'event_test' : ''
+      'event_test' : '',
+      'current_event' : ''
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -58,6 +61,8 @@ class App extends Component {
     fetch('/event/')
       .then(res => res.json())
       .then( data => this.setState({'event_test' : data.event_test}))
+    this.setState({'current_event' : history.location.pathname})
+    console.log(history.location)
   }
 
   render() {
