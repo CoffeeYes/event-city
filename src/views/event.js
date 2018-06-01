@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class Event extends component {
+class Event extends Component {
   render() {
     return(
-      
+      <p> Event component </p>
     )
   }
 }
