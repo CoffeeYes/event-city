@@ -58,12 +58,11 @@ class App extends Component {
     })
   }
 
-  handleEventClick(event,props) {
+  handleEventClick(eventID) {
     fetch('/event/')
       .then(res => res.json())
       .then( data => this.setState({'event_test' : data.event_test}))
-    this.setState({'current_event' : history.location.pathname})
-    console.log(history.location)
+    this.setState({'current_event' : eventID})
   }
 
   render() {
