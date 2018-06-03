@@ -18,8 +18,8 @@ class App extends Component {
       'loading' : false,
       'city' : '',
       'city_events' : [],
-      'event_test' : '',
-      'current_event' : ''
+      'current_event' : '',
+      'event_data' : {}
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -59,10 +59,11 @@ class App extends Component {
   }
 
   handleEventClick(eventID) {
-    fetch('/event/')
-      .then(res => res.json())
-      .then( data => this.setState({'event_test' : data.event_test}))
-    this.setState({'current_event' : eventID})
+    this.setState({'current_event' : eventID},function() {
+      fetch('/event/?query=' + this.state.current_event)
+        .then(res => res.json())
+        .then( data => this.setState({'event_data' : data}))
+    })
   }
 
   render() {
