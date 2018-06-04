@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 class Event extends Component {
   render() {
     return(
-      <p> Event component </p>
+      <div className="eventcontainer">
+        <p>{this.props.data.name}</p>
+        <p>{this.props.data.going}</p>
+        <p>{this.props.data.time}</p>
+      </div>
     )
   }
 }

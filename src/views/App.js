@@ -74,7 +74,7 @@ class App extends Component {
           <EventResult list={this.state.city_events} handleClick={this.handleEventClick}/>
         )}/>
         <Route path='/event/*' render={(props) => (
-          <Event_component/>
+          <Event_component data={this.state.event_data}/>
         )}/>
       </div>
     )
