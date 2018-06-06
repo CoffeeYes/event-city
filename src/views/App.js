@@ -4,7 +4,9 @@ import SearchBar from './searchbar';
 import {Route} from 'react-router-dom';
 import EventResult from './eventresult';
 import createBrowserHistory from 'history/createBrowserHistory';
-import Event_component from './event'
+import Event_component from './event';
+import Login from './login';
+import NavBar from './navbar';
 
 const history = createBrowserHistory()
 
@@ -69,7 +71,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <SearchBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick }/>
+        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick }/>
         <Route path='/city/*' render={(props) => (
           <EventResult list={this.state.city_events} handleClick={this.handleEventClick}/>
         )}/>
