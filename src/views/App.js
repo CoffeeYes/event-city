@@ -78,6 +78,9 @@ class App extends Component {
         <Route path='/event/*' render={(props) => (
           <Event_component data={this.state.event_data}/>
         )}/>
+        <Route exact path='/login' render={(props) => (
+          <Login />
+        )}/>
       </div>
     )
   }
