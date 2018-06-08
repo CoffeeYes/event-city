@@ -92,6 +92,16 @@ a {
   margin-left: 10vw;
   border: 1px solid black;
 }
+.navbar {
+  display:flex;
+  justify-content: center;
+}
+
+.loginLink {
+  align-self: center;
+  height: 6vh;
+  letter-spacing: 1px;
+}
 
 .loginContainer{
   display: flex;
