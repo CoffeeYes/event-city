@@ -72,15 +72,17 @@ class App extends Component {
     return(
       <div>
         <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick }/>
-        <Route path='/city/*' render={(props) => (
-          <EventResult list={this.state.city_events} handleClick={this.handleEventClick}/>
-        )}/>
-        <Route path='/event/*' render={(props) => (
-          <Event_component data={this.state.event_data}/>
-        )}/>
-        <Route exact path='/login' render={(props) => (
-          <Login />
-        )}/>
+        <div className="content-container">
+          <Route path='/city/*' render={(props) => (
+            <EventResult list={this.state.city_events} handleClick={this.handleEventClick}/>
+          )}/>
+          <Route path='/event/*' render={(props) => (
+            <Event_component data={this.state.event_data}/>
+          )}/>
+          <Route exact path='/login' render={(props) => (
+            <Login />
+          )}/>
+        </div>
       </div>
     )
   }
