@@ -7,9 +7,7 @@ class SearchBar extends Component {
     return(
       <div className="searchbar">
         <input onChange={this.props.handleChange} className="search-input" placeholder="Enter a city"/>
-        <Route path='/' render={(props) => (
-          <SearchResult list={this.props.list} handleClick={this.props.handleClick}/>
-        )}/>
+        <SearchResult list={this.props.list} handleClick={this.props.handleClick}/>
       </div>
     )
   }
