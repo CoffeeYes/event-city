@@ -6,6 +6,7 @@ import EventResult from './eventresult';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Event_component from './event';
 import Login from './login';
+import Signup from './signup';
 import NavBar from './navbar';
 
 const history = createBrowserHistory()
@@ -82,6 +83,7 @@ class App extends Component {
           <Route exact path='/login' render={(props) => (
             <Login />
           )}/>
+          <Route exact path='/signup' component={Signup}/>
         </div>
       </div>
     )

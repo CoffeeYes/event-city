@@ -24,12 +24,14 @@ var api = require('./routes/api');
 var city = require('./routes/city');
 var events = require('./routes/event');
 var login = require('./routes/login');
+var signup = requrie('./routes/signup');
 
 //routing
 app.use('/api',api)
 app.use('/city/',city)
 app.use('/event/',events)
 app.use('/login',login)
+app.use('/signup',signup)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
