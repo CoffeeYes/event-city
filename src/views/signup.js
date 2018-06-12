@@ -3,7 +3,17 @@ import React, { Component } from 'react';
 class Signup extends Component {
   render() {
     return(
-      <p>test signup</p>
+      <form action="/signup" method="post">
+      <label>Username :</label>
+      <input name="user"/>
+      <label>Email :</label>
+      <input name="email"/>
+      <label>Password :</label>
+      <input name="pass1" type="password"/>
+      <label>Repeat Password :</label>
+      <input name="pass2" type="password"/>
+      <button>Login</button>
+      </form>
     )
   }
 }

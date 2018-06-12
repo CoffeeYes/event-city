@@ -11,8 +11,6 @@ class Event extends Component {
           <input name="email"/>
           <label>Password :</label>
           <input name="pass1" type="password"/>
-          <label>Repeat Password :</label>
-          <input name="pass2" type="password"/>
           <button>Login</button>
           <a href="/signup">Signup</a>
         </form>

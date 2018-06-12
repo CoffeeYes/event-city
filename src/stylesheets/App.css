@@ -35,6 +35,17 @@
   margin-bottom: 0;
 }
 
+form {
+  padding: 50px 50px 50px 50px;
+  width: 15vw;
+  height: 30vh;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .search-input {
   width: 60vw;
   height: 5vh;
