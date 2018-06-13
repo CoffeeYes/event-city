@@ -12,7 +12,7 @@ class Signup extends Component {
       <input name="pass1" type="password"/>
       <label>Repeat Password :</label>
       <input name="pass2" type="password"/>
-      <button>Login</button>
+      <button>Signup</button>
       </form>
     )
   }
