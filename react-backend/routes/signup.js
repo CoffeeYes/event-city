@@ -5,7 +5,14 @@ var connect = require('../bin/connect.js');
 var Oid = require('mongodb').ObjectID;
 
 router.post('/',function(req,res,next) {
-  console.log(req.body)
+  var data = req.body;
+
+  for(var item in data) {
+    if(data[item].trim() == "") {
+      res.send("fields cannot be empty")
+    }
+  }
+  console.log(data)
 })
 
 
