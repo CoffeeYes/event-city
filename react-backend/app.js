@@ -21,14 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //include routes
 var api = require('./routes/api');
-var city = require('./routes/city');
 var events = require('./routes/event');
 var login = require('./routes/login');
 var signup = require('./routes/signup');
 
 //routing
 app.use('/api',api)
-app.use('/city/',city)
 app.use('/event/',events)
 app.use('/login',login)
 app.use('/signup',signup)
