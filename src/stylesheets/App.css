@@ -33,6 +33,7 @@
   flex-wrap: wrap;
   padding: 10px;
   margin-bottom: 0;
+  margin-left: 7vw;
 }
 
 form {
@@ -98,8 +99,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width : 80vw;
-  margin-left: 10vw;
+  width : 60vw;
   border: 1px solid black;
 }
 .navbar {
@@ -141,7 +141,7 @@ a {
   justify-content: space-around;
 }
 
-input {
+form input {
   display:block;
   margin : 2px;
 }
