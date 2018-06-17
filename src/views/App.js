@@ -28,6 +28,7 @@ class App extends Component {
     this.updateSearchText = this.updateSearchText.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleEventClick = this.handleEventClick.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
   }
 
   componentDidMount() {
@@ -69,10 +70,18 @@ class App extends Component {
     })
   }
 
+  handleSignup(event) {
+    event.preventDefault();
+    fetch('/signup') {
+      method : 'POST',
+      body: form
+    }
+  }
+
   render() {
     return(
       <div>
-        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick }/>
+        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick}/>
         <div className="content-container">
           <Route path='/city/*' render={(props) => (
             <EventResult list={this.state.city_events} handleClick={this.handleEventClick}/>
@@ -83,7 +92,9 @@ class App extends Component {
           <Route exact path='/login' render={(props) => (
             <Login />
           )}/>
-          <Route exact path='/signup' component={Signup}/>
+          <Route exact path='/signup' render={() => (
+            <Signup handleSignup={this.handleSignup} />
+          )}/>
         </div>
       </div>
     )
