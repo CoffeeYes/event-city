@@ -72,10 +72,10 @@ class App extends Component {
 
   handleSignup(event) {
     event.preventDefault();
-    fetch('/signup') {
+    fetch('/signup', {
       method : 'POST',
       body: form
-    }
+    })
   }
 
   render() {
