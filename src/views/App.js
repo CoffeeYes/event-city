@@ -73,8 +73,7 @@ class App extends Component {
   handleSignup(event) {
     event.preventDefault();
     fetch('/signup', {
-      method : 'POST',
-      body: form
+      method : 'POST'
     })
   }
 
