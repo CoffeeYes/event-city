@@ -9,7 +9,7 @@ router.post('/',function(req,res,next) {
 
   for(var item in data) {
     if(data[item].trim() == "") {
-      res.send("fields cannot be empty")
+      return res.send("fields cannot be empty")
     }
   }
   console.log(data)
