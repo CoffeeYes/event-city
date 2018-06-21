@@ -22,7 +22,14 @@ class App extends Component {
       'city' : '',
       'city_events' : [],
       'current_event' : '',
-      'event_data' : {}
+      'event_data' : {},
+      'user_data' : {
+        'username' : '',
+        'email' : '',
+        'password1' : '',
+        'password2' : '',
+        'loggedIn' : '',
+      }
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
