@@ -24,10 +24,10 @@ class App extends Component {
       'current_event' : '',
       'event_data' : {},
       'user_data' : {
-        'username' : '',
+        'user' : 'testuser',
         'email' : '',
-        'password1' : '',
-        'password2' : '',
+        'pass1' : '',
+        'pass2' : '',
         'loggedIn' : '',
       }
     }
@@ -36,6 +36,7 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleEventClick = this.handleEventClick.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
+    this.handleUserState = this.handleUserState.bind(this);
   }
 
   componentDidMount() {
@@ -80,14 +81,18 @@ class App extends Component {
     })
   }
 
-  //handle state of userinfo for signing up
+  //handle backend data transfer of userinfo for signing up
   handleSignup(event) {
     event.preventDefault();
     fetch('/signup', {
       method : 'POST'
     })
   }
-  
+
+  handleUserState(event) {
+    this.setState({['user_data.' + event.target.name] : event.target.value})
+  }
+
   render() {
     return(
       <div>
@@ -103,7 +108,7 @@ class App extends Component {
             <Login />
           )}/>
           <Route exact path='/signup' render={() => (
-            <Signup handleSignup={this.handleSignup} />
+            <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} />
           )}/>
         </div>
       </div>

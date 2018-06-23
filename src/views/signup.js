@@ -5,13 +5,13 @@ class Signup extends Component {
     return(
       <form action="/signup" method="post">
       <label>Username :</label>
-      <input name="user"/>
+      <input name="user" onChange={this.props.handleChange}/>
       <label>Email :</label>
-      <input name="email"/>
+      <input name="email" onChange={this.props.handleChange}/>
       <label>Password :</label>
-      <input name="pass1" type="password"/>
+      <input name="pass1" type="password" onChange={this.props.handleChange}/>
       <label>Repeat Password :</label>
-      <input name="pass2" type="password"/>
+      <input name="pass2" type="password" onChange={this.props.handleChange}/>
       <button onClick={this.props.handleSignup}>Signup</button>
       </form>
     )
