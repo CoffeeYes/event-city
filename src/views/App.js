@@ -24,7 +24,7 @@ class App extends Component {
       'current_event' : '',
       'event_data' : {},
       'user_data' : {
-        'user' : 'testuser',
+        'user' : '',
         'email' : '',
         'pass1' : '',
         'pass2' : '',
@@ -85,12 +85,23 @@ class App extends Component {
   handleSignup(event) {
     event.preventDefault();
     fetch('/signup', {
-      method : 'POST'
+      method : 'POST',
+      headers : {
+        'Content-Type' : 'application/x-www-form-urlencoded'
+      },
+      body: JSON.stringify({
+        username : this.state.user_data.user,
+        email : this.state.user_data.email,
+        password1 : this.state.user_data.pass1,
+        password2 : this.state.user_data.pass2
+      })
     })
   }
 
+
+  //user state handler for signup form, takes current state of user_data and appends state depending on name of input being changed
   handleUserState(event) {
-    this.setState({['user_data.' + event.target.name] : event.target.value})
+    this.setState({'user_data' : {...this.state.user_data,[event.target.name] : event.target.value}})
   }
 
   render() {
