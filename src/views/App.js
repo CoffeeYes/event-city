@@ -87,14 +87,9 @@ class App extends Component {
     fetch('/signup', {
       method : 'POST',
       headers : {
-        'Content-Type' : 'application/x-www-form-urlencoded'
+        'Content-Type' : 'application/json'
       },
-      body: JSON.stringify({
-        username : this.state.user_data.user,
-        email : this.state.user_data.email,
-        password1 : this.state.user_data.pass1,
-        password2 : this.state.user_data.pass2
-      })
+      body: JSON.stringify(this.state.user_data)
     })
   }
 
