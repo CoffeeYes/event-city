@@ -23,6 +23,7 @@ class App extends Component {
       'city_events' : [],
       'current_event' : '',
       'event_data' : {},
+      'error' : '',
       'user_data' : {
         'user' : '',
         'email' : '',
@@ -84,6 +85,13 @@ class App extends Component {
   //handle backend data transfer of userinfo for signing up
   handleSignup(event) {
     event.preventDefault();
+    //check for empty fields
+    for(var item in this.state.user_data) {
+      if(this.state.user_data[item].trim() == "") {
+        return this.setState({error : "fields cannot be empty"})
+      }
+    }
+    //post data to backend
     fetch('/signup', {
       method : 'POST',
       headers : {
@@ -114,7 +122,7 @@ class App extends Component {
             <Login />
           )}/>
           <Route exact path='/signup' render={() => (
-            <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} />
+            <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} error={this.state.error}/>
           )}/>
         </div>
       </div>

@@ -64,6 +64,10 @@ a {
   color: inherit;
 }
 
+.error {
+  color : red;
+}
+
 .result {
   height: 5vh;
   border: 1px solid black;

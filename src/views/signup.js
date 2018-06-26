@@ -4,6 +4,7 @@ class Signup extends Component {
   render() {
     return(
       <form action="/signup" method="post">
+      <p className="error">{this.props.error}</p>
       <label>Username :</label>
       <input name="user" onChange={this.props.handleChange}/>
       <label>Email :</label>
