@@ -29,8 +29,8 @@ class App extends Component {
         'email' : '',
         'pass1' : '',
         'pass2' : '',
-        'loggedIn' : '',
-      }
+      },
+      'loggedIn' : false
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -85,11 +85,17 @@ class App extends Component {
   //handle backend data transfer of userinfo for signing up
   handleSignup(event) {
     event.preventDefault();
+    //reset error
+    this.setState({error: ""})
     //check for empty fields
     for(var item in this.state.user_data) {
       if(this.state.user_data[item].trim() == "") {
         return this.setState({error : "fields cannot be empty"})
       }
+    }
+    //check password match
+    if(this.state.user_data.pass1 != this.state.user_data.pass2) {
+      return this.setState({error: "Passwords do not match"})
     }
     //post data to backend
     fetch('/signup', {
