@@ -84,6 +84,7 @@ class App extends Component {
 
   //handle backend data transfer of userinfo for signing up
   handleSignup(event) {
+    var email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     event.preventDefault();
     //reset error
     this.setState({error: ""})
@@ -96,6 +97,10 @@ class App extends Component {
     //check password match
     if(this.state.user_data.pass1 != this.state.user_data.pass2) {
       return this.setState({error: "Passwords do not match"})
+    }
+    
+    if(email_regex.test(this.state.user_data.email) == false) {
+      return this.setState({error: "Invalid email address"})
     }
     //post data to backend
     fetch('/signup', {
