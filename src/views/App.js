@@ -98,7 +98,7 @@ class App extends Component {
     if(this.state.user_data.pass1 != this.state.user_data.pass2) {
       return this.setState({error: "Passwords do not match"})
     }
-    
+
     if(email_regex.test(this.state.user_data.email) == false) {
       return this.setState({error: "Invalid email address"})
     }
@@ -109,6 +109,10 @@ class App extends Component {
         'Content-Type' : 'application/json'
       },
       body: JSON.stringify(this.state.user_data)
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.setState({error : data.error})
     })
   }
 
