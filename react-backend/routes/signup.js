@@ -15,6 +15,21 @@ router.post('/',function(req,res,next) {
       if(data != '') {
         return res.send({error: "User already exists"})
       }
+      else {
+        database.collection('user-data').find({email : data.email}).toArray(function(error,data) {
+          if(error)throw error;
+          if(data != '') {
+            return res.send({error: "Email is already in use"})
+          }
+          else {
+            database.collection('user-data').insertOne({
+              'username' : req.body.user,
+              'email' : req.body.email,
+              'password' : req.body.pass1
+            })
+          }
+        })
+      }
     })
   })
 })
