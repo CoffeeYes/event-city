@@ -6,11 +6,11 @@ class Event extends Component {
       <div className="loginContainer">
         <form className="loginForm" action="/login" method="POST">
           <label>Username :</label>
-          <input name="user"/>
+          <input name="user" onChange={this.props.handleChange}/>
           <label>Email :</label>
-          <input name="email"/>
+          <input name="email" onChange={this.props.handleChange}/>
           <label>Password :</label>
-          <input name="pass1" type="password"/>
+          <input name="pass1" type="password" onChange={this.props.handleChange}/>
           <button>Login</button>
           <a href="/signup">Signup</a>
         </form>

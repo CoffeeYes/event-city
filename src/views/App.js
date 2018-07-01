@@ -134,7 +134,7 @@ class App extends Component {
             <Event_component data={this.state.event_data}/>
           )}/>
           <Route exact path='/login' render={(props) => (
-            <Login />
+            <Login handleChange={this.handleUserState}/>
           )}/>
           <Route exact path='/signup' render={() => (
             <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} error={this.state.error}/>
