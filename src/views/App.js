@@ -38,6 +38,7 @@ class App extends Component {
     this.handleEventClick = this.handleEventClick.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
     this.handleUserState = this.handleUserState.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   componentDidMount() {
@@ -116,6 +117,14 @@ class App extends Component {
     })
   }
 
+  handleLogin(event) {
+    event.preventDefault();
+
+    if(this.state.user_data.user.trim() == '' || this.state.user_data.pass1 == '') {
+      this.setState({error : 'Fields cannot be empty'})
+    }
+  }
+
 
   //user state handler for signup form, takes current state of user_data and appends state depending on name of input being changed
   handleUserState(event) {
@@ -134,7 +143,7 @@ class App extends Component {
             <Event_component data={this.state.event_data}/>
           )}/>
           <Route exact path='/login' render={(props) => (
-            <Login handleChange={this.handleUserState}/>
+            <Login handleChange={this.handleUserState} error={this.state.error} handleLogin={this.handleLogin}/>
           )}/>
           <Route exact path='/signup' render={() => (
             <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} error={this.state.error}/>
