@@ -119,10 +119,26 @@ class App extends Component {
 
   handleLogin(event) {
     event.preventDefault();
-
+    this.setState({error : ''})
     if(this.state.user_data.user.trim() == '' || this.state.user_data.pass1 == '') {
-      this.setState({error : 'Fields cannot be empty'})
+      return this.setState({error : 'Fields cannot be empty'})
     }
+
+    fetch('/login', {
+      method : 'POST',
+      headers : {
+        'Content-type' : 'application/json'
+      },
+      body : JSON.stringify({
+        user : this.state.user_data.user,
+        pass1 : this.state.user_data.pass1
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.setState({error : data.error})
+      this.setState({loggedIn : data.loggedIn})
+    })
   }
 
 
