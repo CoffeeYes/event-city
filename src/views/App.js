@@ -137,7 +137,11 @@ class App extends Component {
     .then(res => res.json())
     .then(data => {
       this.setState({error : data.error})
-      this.setState({loggedIn : data.loggedIn})
+      this.setState({loggedIn : data.loggedIn},() => {
+        if(this.state.loggedIn == true) {
+          window.location = '/'
+        }
+      })
     })
   }
 
