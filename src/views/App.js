@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import '../stylesheets/App.css';
-import SearchBar from './searchbar';
 import {Route} from 'react-router-dom';
 import EventResult from './eventresult';
 import createBrowserHistory from 'history/createBrowserHistory';
-import Event_component from './event';
+import EventComponent from './event';
 import Login from './login';
 import Signup from './signup';
 import NavBar from './navbar';
@@ -39,6 +38,7 @@ class App extends Component {
     this.handleSignup = this.handleSignup.bind(this);
     this.handleUserState = this.handleUserState.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentDidMount() {
@@ -137,12 +137,12 @@ class App extends Component {
     .then(res => res.json())
     .then(data => {
       this.setState({error : data.error})
-      this.setState({loggedIn : data.loggedIn},() => {
-        if(this.state.loggedIn == true) {
-          window.location = '/'
-        }
-      })
+      this.setState({loggedIn : data.loggedIn})
     })
+  }
+
+  handleLogout() {
+    this.setState({loggedIn : false})
   }
 
 
@@ -154,13 +154,13 @@ class App extends Component {
   render() {
     return(
       <div>
-        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick}/>
+        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick} loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
         <div className="content-container">
           <Route path='/city/*' render={(props) => (
             <EventResult list={this.state.city_events} handleClick={this.handleEventClick}/>
           )}/>
           <Route path='/event/*' render={(props) => (
-            <Event_component data={this.state.event_data}/>
+            <EventComponent data={this.state.event_data}/>
           )}/>
           <Route exact path='/login' render={(props) => (
             <Login handleChange={this.handleUserState} error={this.state.error} handleLogin={this.handleLogin}/>
