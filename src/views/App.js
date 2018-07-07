@@ -137,7 +137,14 @@ class App extends Component {
     .then(res => res.json())
     .then(data => {
       this.setState({error : data.error})
-      this.setState({loggedIn : data.loggedIn})
+      this.setState({loggedIn : data.loggedIn}, () => {
+        if(this.state.loggedIn == true) {
+          history.push('/')
+        }
+      })
+    })
+    .then(() => {
+      this.setState({loggedIn : true})
     })
   }
 
@@ -163,7 +170,7 @@ class App extends Component {
             <EventComponent data={this.state.event_data}/>
           )}/>
           <Route exact path='/login' render={(props) => (
-            <Login handleChange={this.handleUserState} error={this.state.error} handleLogin={this.handleLogin}/>
+            <Login handleChange={this.handleUserState} error={this.state.error} handleLogin={this.handleLogin} loggedIn={this.state.loggedIn}/>
           )}/>
           <Route exact path='/signup' render={() => (
             <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} error={this.state.error}/>
