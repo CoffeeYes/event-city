@@ -16,6 +16,7 @@ class Event extends Component {
       return (
         <div className="navbar">
           <SearchBar handleChange={this.props.handleChange} value={this.props.value} list={this.props.list} handleClick={this.props.handleClick }/>
+          <a href="/add-event" className="loginLink">Add Event</a>
           <a href="/"className="loginLink">Logout</a>
         </div>
       )
