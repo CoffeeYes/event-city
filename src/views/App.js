@@ -119,11 +119,15 @@ class App extends Component {
 
   handleLogin(event) {
     event.preventDefault();
+    //reset error state
     this.setState({error : ''})
+
+    //empty field check
     if(this.state.user_data.user.trim() == '' || this.state.user_data.pass1 == '') {
       return this.setState({error : 'Fields cannot be empty'})
     }
 
+    //post to backend
     fetch('/login', {
       method : 'POST',
       headers : {
@@ -134,6 +138,7 @@ class App extends Component {
         pass1 : this.state.user_data.pass1
       })
     })
+    //handle backend response
     .then(res => res.json())
     .then(data => {
       this.setState({error : data.error})

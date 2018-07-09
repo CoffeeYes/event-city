@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class Event extends Component {
   render() {
+    //conditional render based on login status
     if(this.props.loggedIn == false) {
       return(
         <div className="loginContainer">
