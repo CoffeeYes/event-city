@@ -7,6 +7,7 @@ import EventComponent from './event';
 import Login from './login';
 import Signup from './signup';
 import NavBar from './navbar';
+import {createStore} from 'redux';
 
 const history = createBrowserHistory()
 
