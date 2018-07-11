@@ -149,9 +149,6 @@ class App extends Component {
         }
       })
     })
-    .then(() => {
-      this.setState({loggedIn : true})
-    })
   }
 
   handleLogout() {
