@@ -30,7 +30,7 @@ class App extends Component {
         'pass1' : '',
         'pass2' : '',
       },
-      'loggedIn' : false
+      'loggedIn' : JSON.parse(localStorage.getItem("loggedIn"))
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -146,13 +146,17 @@ class App extends Component {
       this.setState({loggedIn : data.loggedIn}, () => {
         if(this.state.loggedIn == true) {
           history.push('/')
+          localStorage.setItem("loggedIn",true);
         }
       })
     })
   }
 
-  handleLogout() {
-    this.setState({loggedIn : false})
+  handleLogout(event) {
+    event.preventDefault();
+    this.setState({loggedIn : false});
+    localStorage.clear();
+    localStorage.setItem("loggedIn",false);
   }
 
 
