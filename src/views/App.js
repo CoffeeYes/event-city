@@ -25,7 +25,7 @@ class App extends Component {
       'event_data' : {},
       'error' : '',
       'user_data' : {
-        'user' : '',
+        'user' : localStorage.getItem("user"),
         'email' : '',
         'pass1' : '',
         'pass2' : '',
@@ -147,6 +147,7 @@ class App extends Component {
         if(this.state.loggedIn == true) {
           history.push('/')
           localStorage.setItem("loggedIn",true);
+          localStorage.setItem("user",this.state.user_data.user);
         }
       })
     })
