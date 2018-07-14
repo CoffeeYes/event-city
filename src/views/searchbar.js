@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SearchResult from './searchResult';
-import {Route} from 'react-router-dom';
 
 class SearchBar extends Component {
   render() {

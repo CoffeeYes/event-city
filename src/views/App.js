@@ -7,7 +7,6 @@ import EventComponent from './event';
 import Login from './login';
 import Signup from './signup';
 import NavBar from './navbar';
-import {createStore} from 'redux';
 
 const history = createBrowserHistory()
 
@@ -92,16 +91,16 @@ class App extends Component {
     this.setState({error: ""})
     //check for empty fields
     for(var item in this.state.user_data) {
-      if(this.state.user_data[item].trim() == "") {
+      if(this.state.user_data[item].trim() === "") {
         return this.setState({error : "fields cannot be empty"})
       }
     }
     //check password match
-    if(this.state.user_data.pass1 != this.state.user_data.pass2) {
+    if(this.state.user_data.pass1 !== this.state.user_data.pass2) {
       return this.setState({error: "Passwords do not match"})
     }
 
-    if(email_regex.test(this.state.user_data.email) == false) {
+    if(email_regex.test(this.state.user_data.email) === false) {
       return this.setState({error: "Invalid email address"})
     }
     //post data to backend
@@ -124,7 +123,7 @@ class App extends Component {
     this.setState({error : ''})
 
     //empty field check
-    if(this.state.user_data.user.trim() == '' || this.state.user_data.pass1 == '') {
+    if(this.state.user_data.user.trim() === '' || this.state.user_data.pass1 === '') {
       return this.setState({error : 'Fields cannot be empty'})
     }
 
@@ -144,7 +143,7 @@ class App extends Component {
     .then(data => {
       this.setState({error : data.error})
       this.setState({loggedIn : data.loggedIn}, () => {
-        if(this.state.loggedIn == true) {
+        if(this.state.loggedIn === true) {
           history.push('/')
           localStorage.setItem("loggedIn",true);
           localStorage.setItem("user",this.state.user_data.user);
