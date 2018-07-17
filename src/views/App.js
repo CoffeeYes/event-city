@@ -166,6 +166,10 @@ class App extends Component {
     this.setState({'user_data' : {...this.state.user_data,[event.target.name] : event.target.value}})
   }
 
+  handleAddEvent(event) {
+    
+  }
+
   render() {
     return(
       <div>
