@@ -30,7 +30,8 @@ class App extends Component {
         'pass1' : '',
         'pass2' : '',
       },
-      'loggedIn' : JSON.parse(localStorage.getItem("loggedIn"))
+      'loggedIn' : JSON.parse(localStorage.getItem("loggedIn")),
+      'add_event_data' : {}
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -167,7 +168,7 @@ class App extends Component {
   }
 
   handleAddEvent(event) {
-    
+    this.setState({'add_event_data' : {...this.state.add_event_data,[event.target.name] : event.target.value}})
   }
 
   render() {
