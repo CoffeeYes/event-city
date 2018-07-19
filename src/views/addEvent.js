@@ -7,13 +7,13 @@ class addEvent extends Component {
         <form className="addForm" action="/add-event" method="POST">
           <p className="error">{this.props.error}</p>
           <label>Title :</label>
-          <input name="title"/>
+          <input name="title" onChange={this.props.handleChange}/>
           <label>Time :</label>
-          <input name="time"/>
+          <input name="time" onChange={this.props.handleChange}/>
           <label>Date :</label>
-          <input name="date" />
+          <input name="date" onChange={this.props.handleChange} />
           <label>Location :</label>
-          <input name="location" />
+          <input name="location" onChange={this.props.handleChange}/>
         </form>
       </div>
     )

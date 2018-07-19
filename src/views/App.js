@@ -31,7 +31,12 @@ class App extends Component {
         'pass2' : '',
       },
       'loggedIn' : JSON.parse(localStorage.getItem("loggedIn")),
-      'add_event_data' : {}
+      'add_event_data' : {
+        'date': '',
+        'location': '',
+        'time': '',
+        'title': '',
+      }
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -41,6 +46,7 @@ class App extends Component {
     this.handleUserState = this.handleUserState.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleAddEvent = this.handleAddEvent.bind(this);
   }
 
   componentDidMount() {
@@ -189,7 +195,7 @@ class App extends Component {
             <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} error={this.state.error}/>
           )}/>
           <Route exact path='/add-event' render={(props) => (
-            <AddEvent />
+            <AddEvent handleChange={this.handleAddEvent}/>
           )}/>
         </div>
       </div>
