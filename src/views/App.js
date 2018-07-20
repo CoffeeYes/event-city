@@ -47,6 +47,7 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleAddEvent = this.handleAddEvent.bind(this);
+    this.postAddEvent = this.postAddEvent.bind(this);
   }
 
   componentDidMount() {
@@ -177,6 +178,17 @@ class App extends Component {
     this.setState({'add_event_data' : {...this.state.add_event_data,[event.target.name] : event.target.value}})
   }
 
+  postAddEvent(event) {
+    event.preventDefault()
+    fetch('/add-event',{
+      method : 'POST',
+      headers : {
+        'Content-type' : 'application/json'
+      },
+      body : JSON.stringify(this.state.add_event_data,{user : this.state.user_data.user})
+    })
+  }
+
   render() {
     return(
       <div>
@@ -195,7 +207,7 @@ class App extends Component {
             <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} error={this.state.error}/>
           )}/>
           <Route exact path='/add-event' render={(props) => (
-            <AddEvent handleChange={this.handleAddEvent}/>
+            <AddEvent handleChange={this.handleAddEvent} postAddEvent={this.postAddEvent}/>
           )}/>
         </div>
       </div>

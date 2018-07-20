@@ -14,6 +14,7 @@ class addEvent extends Component {
           <input name="date" onChange={this.props.handleChange} />
           <label>Location :</label>
           <input name="location" onChange={this.props.handleChange}/>
+          <button onClick={this.props.postAddEvent}>Submit</button>
         </form>
       </div>
     )
