@@ -180,12 +180,19 @@ class App extends Component {
 
   postAddEvent(event) {
     event.preventDefault()
+    var data = {
+      date : this.state.add_event_data.date,
+      location : this.state.add_event_data.location,
+      time : this.state.add_event_data.time,
+      title : this.state.add_event_data.title,
+      user : this.state.user_data.user
+    }
     fetch('/add-event',{
       method : 'POST',
       headers : {
         'Content-type' : 'application/json'
       },
-      body : JSON.stringify(this.state.add_event_data,{user : this.state.user_data.user})
+      body : JSON.stringify(data)
     })
   }
 
