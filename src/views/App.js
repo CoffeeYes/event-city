@@ -180,6 +180,11 @@ class App extends Component {
 
   postAddEvent(event) {
     event.preventDefault()
+    for(var item in this.state.add_event_data) {
+      if(this.state.add_event_data[item].trim() === "") {
+        return this.setState({error : "fields cannot be empty"})
+      }
+    }
     var data = {
       date : this.state.add_event_data.date,
       location : this.state.add_event_data.location,
@@ -214,7 +219,7 @@ class App extends Component {
             <Signup handleSignup={this.handleSignup} handleChange={this.handleUserState} error={this.state.error}/>
           )}/>
           <Route exact path='/add-event' render={(props) => (
-            <AddEvent handleChange={this.handleAddEvent} postAddEvent={this.postAddEvent}/>
+            <AddEvent handleChange={this.handleAddEvent} postAddEvent={this.postAddEvent} error={this.state.error}/>
           )}/>
         </div>
       </div>
