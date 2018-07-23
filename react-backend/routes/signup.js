@@ -25,7 +25,8 @@ router.post('/',function(req,res,next) {
             database.collection('user-data').insertOne({
               'username' : req.body.user,
               'email' : req.body.email,
-              'password' : req.body.pass1
+              'password' : req.body.pass1,
+              'events' : []
             })
           }
         })
