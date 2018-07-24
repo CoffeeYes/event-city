@@ -185,6 +185,10 @@ class App extends Component {
         return this.setState({error : "fields cannot be empty"})
       }
     }
+
+    if(this.state.loggedIn === false) {
+      return this.setState({error : "You are not logged in"})
+    }
     var data = {
       date : this.state.add_event_data.date,
       location : this.state.add_event_data.location,
