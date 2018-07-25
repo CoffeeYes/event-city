@@ -64,6 +64,11 @@ a {
   color: inherit;
 }
 
+.homelink {
+  font-size: 2em;
+  padding-top: 0.5em;
+}
+
 .error {
   color : red;
 }

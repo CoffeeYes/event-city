@@ -7,6 +7,7 @@ class Event extends Component {
     if(this.props.loggedIn === false) {
       return(
         <div className="navbar">
+          <a href="/" className="homelink">Home</a>
           <SearchBar handleChange={this.props.handleChange} value={this.props.value} list={this.props.list} handleClick={this.props.handleClick }/>
           <a href="/login" className="loginLink">Login </a>
           <a href="Signup" className="loginLink">Signup</a>
@@ -16,6 +17,7 @@ class Event extends Component {
     else {
       return (
         <div className="navbar">
+          <a href="/" className="homelink">Home</a>
           <SearchBar handleChange={this.props.handleChange} value={this.props.value} list={this.props.list} handleClick={this.props.handleClick }/>
           <a href="/add-event" className="loginLink">Add Event</a>
           <a href="/"className="loginLink" onClick={this.props.logout}>Logout</a>
