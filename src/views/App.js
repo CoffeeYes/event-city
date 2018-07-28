@@ -25,7 +25,7 @@ class App extends Component {
       'event_data' : {},
       'error' : '',
       'user_data' : {
-        'user' : localStorage.getItem("user"),
+        'user' : localStorage.getItem("user") || "",
         'email' : '',
         'pass1' : '',
         'pass2' : '',
@@ -166,6 +166,7 @@ class App extends Component {
     this.setState({loggedIn : false});
     localStorage.clear();
     localStorage.setItem("loggedIn",false);
+    this.setState({'user_data' : {...this.state.user_data,['user'] : ""}})
   }
 
 
