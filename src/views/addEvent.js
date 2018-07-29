@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cities from '../assets/cities.json'
 
 class addEvent extends Component {
   render() {
@@ -15,7 +16,8 @@ class addEvent extends Component {
           <label>Location :</label>
           <input name="location" onChange={this.props.handleChange}/>
           <label>City :</label>
-          <input name="city-specific" onChange={this.props.handleChange}/>
+          <select name="city-specific" onChange={this.props.handleChange}>
+          </select>
           <button onClick={this.props.postAddEvent}>Submit</button>
         </form>
       </div>

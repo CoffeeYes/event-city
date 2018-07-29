@@ -1,2 +1,3 @@
 node_modules/
 react-backend/bin/connect.js
+src/assets/cities.json
