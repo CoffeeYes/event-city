@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import cities from '../assets/cities.json'
+import cities from '../assets/world-cities_json.json'
 
 class addEvent extends Component {
   render() {
@@ -17,6 +17,11 @@ class addEvent extends Component {
           <input name="location" onChange={this.props.handleChange}/>
           <label>City :</label>
           <select name="city-specific" onChange={this.props.handleChange}>
+          {
+            cities.map(item =>
+              <option>{item.name}</option>
+            )
+          }
           </select>
           <button onClick={this.props.postAddEvent}>Submit</button>
         </form>
