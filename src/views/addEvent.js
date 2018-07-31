@@ -16,7 +16,7 @@ class addEvent extends Component {
           <label>Location :</label>
           <input name="location" onChange={this.props.handleChange}/>
           <label>City :</label>
-          <select name="city-specific" onChange={this.props.handleChange}>
+          <select name="city_specific" onChange={this.props.handleChange}>
           {
             cities.map(item =>
               <option>{item.name}</option>

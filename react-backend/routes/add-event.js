@@ -15,7 +15,8 @@ router.post('/',function(req,res,next) {
       date : req.body.date,
       location : req.body.location,
       time : req.body.time,
-      title : req.body.title
+      title : req.body.title,
+      city: req.body.city_specific
     }
 
     database.collection('user-data').update({username : req.body.user},{$push : {events : data}})
