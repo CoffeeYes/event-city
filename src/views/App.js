@@ -36,6 +36,7 @@ class App extends Component {
         'location': '',
         'time': '',
         'title': '',
+        'city_specific' : '',
       }
     }
 
@@ -197,7 +198,8 @@ class App extends Component {
       location : this.state.add_event_data.location,
       time : this.state.add_event_data.time,
       title : this.state.add_event_data.title,
-      user : this.state.user_data.user
+      user : this.state.user_data.user,
+      city_specific : this.state.add_event_data.city_specific
     }
     //post to backend
     fetch('/add-event',{
