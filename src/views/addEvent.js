@@ -10,9 +10,9 @@ class addEvent extends Component {
           <label>Title :</label>
           <input name="title" onChange={this.props.handleChange}/>
           <label>Time :</label>
-          <input name="time" onChange={this.props.handleChange}/>
+          <input name="time" type="time" onChange={this.props.handleChange}/>
           <label>Date :</label>
-          <input name="date" onChange={this.props.handleChange} />
+          <input name="date" type="date" onChange={this.props.handleChange} />
           <label>Location :</label>
           <input name="location" onChange={this.props.handleChange}/>
           <label>City :</label>
