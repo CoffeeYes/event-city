@@ -13,6 +13,8 @@ import {Link} from 'react-router-dom';
                       <h2>{item.name} - {item.location}</h2>
                       <p>{item.time}</p>
                       <p>{item.going} going</p>
+                      <p>{item.date}</p>
+                      <p>Hosted By : {item.user}</p>
                     </div>
                 </Link>
             )
