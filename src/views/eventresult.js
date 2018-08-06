@@ -10,7 +10,7 @@ import {Link} from 'react-router-dom';
             return (
                 <Link to={"/event/" + item.code} key={index} onClick={ () => this.props.handleClick(item.code)}>
                     <div className="event">
-                      <h2>{item.name} - {item.location}</h2>
+                      <h2>{item.title} - {item.location}</h2>
                       <p>{item.time}</p>
                       <p>{item.going} going</p>
                       <p>{item.date}</p>

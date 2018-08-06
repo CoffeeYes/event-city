@@ -37,6 +37,7 @@ class App extends Component {
         'time': '',
         'title': '',
         'city_specific' : '',
+        'going' : 1
       }
     }
 
