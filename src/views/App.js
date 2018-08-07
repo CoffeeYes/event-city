@@ -165,7 +165,10 @@ class App extends Component {
 
   handleLogout(event) {
     event.preventDefault();
+    //update state
     this.setState({loggedIn : false});
+
+    //clear localstorage then set to false
     localStorage.clear();
     localStorage.setItem("loggedIn",false);
     this.setState({'user_data' : {...this.state.user_data,['user'] : ""}})
