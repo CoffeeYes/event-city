@@ -171,6 +171,7 @@ class App extends Component {
     //clear localstorage then set to false
     localStorage.clear();
     localStorage.setItem("loggedIn",false);
+    //set username to null
     this.setState({'user_data' : {...this.state.user_data,['user'] : ""}})
   }
 
