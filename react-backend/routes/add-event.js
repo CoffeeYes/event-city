@@ -30,7 +30,7 @@ router.post('/',function(req,res,next) {
         time : req.body.time,
         title : req.body.title,
         user : req.body.user,
-        code : current_code
+        code : String(current_code)
       }
 
       database.collection('user-data').update({username : req.body.user},{$push : {events : data_user}})
