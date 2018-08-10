@@ -11,10 +11,10 @@ router.get('/', function(req, res, next) {
       if(error) throw error;
       var database = client.db(connect.mongo.db_name);
       database.collection('cities').find({events : {$elemMatch : {code : query}}}).toArray(function(error,data) {
-        console.log(data)
         var result = data[0].events;
         for(var item in result) {
           if (result[item].code == query) {
+            console.log(result[item])
             res.send(result[item])
           }
         }
