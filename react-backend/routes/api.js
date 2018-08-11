@@ -9,6 +9,7 @@ router.get('/test', function(req, res, next) {
     res.send({test_key : 'test_value'})
 });
 
+//match searchstring with database, show first 20 results
 router.get('/cities',function(req,res,next) {
   var query = String(req.query.query)
   mClient.connect(connect.mongo.url,function(error,client) {
@@ -27,6 +28,7 @@ router.get('/cities',function(req,res,next) {
   })
 })
 
+//get all events listed under city
 router.get('/city/*',function(req,res,next) {
   var city = decodeURI(req.url.split('/city/')[1]);
   mClient.connect(connect.mongo.url,function(error,client) {

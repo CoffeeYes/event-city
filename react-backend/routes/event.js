@@ -4,7 +4,7 @@ var mClient = require('mongodb').MongoClient;
 var connect = require('../bin/connect.js');
 var Oid = require('mongodb').ObjectID;
 
-/* GET users listing. */
+//get data for single event on click
 router.get('/', function(req, res, next) {
     var query = String(req.query.query);
     mClient.connect(connect.mongo.url,function(error,client) {

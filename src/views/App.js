@@ -52,6 +52,7 @@ class App extends Component {
     this.postAddEvent = this.postAddEvent.bind(this);
   }
 
+  //test connection to backend
   componentDidMount() {
     fetch('/api/test')
       .then( res => res.json())
