@@ -12,7 +12,6 @@ router.post('/',function(req,res,next) {
     database.collection('user-data').find({username : data.user}).toArray(function(error,data) {
       if(error)throw error;
       if(data == '') {
-        console.log("user not found");
         res.send({error : "User not found",loggedIn : false});
       }
       else {

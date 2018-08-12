@@ -5,7 +5,6 @@ var connect = require('../bin/connect.js');
 var Oid = require('mongodb').ObjectID;
 
 router.post('/',function(req,res,next) {
-  console.log(req.body)
 
   mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;

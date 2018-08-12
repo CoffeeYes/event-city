@@ -6,7 +6,7 @@ var Oid = require('mongodb').ObjectID;
 
 router.post('/',function(req,res,next) {
   var data = req.body;
-  console.log(data)
+
   mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;
     var database = client.db('pinterest-clone');
