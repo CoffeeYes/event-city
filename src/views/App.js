@@ -181,7 +181,7 @@ class App extends Component {
   handleUserState(event) {
     this.setState({'user_data' : {...this.state.user_data,[event.target.name] : event.target.value}})
   }
-
+  //update state for event form
   handleAddEvent(event) {
     this.setState({'add_event_data' : {...this.state.add_event_data,[event.target.name] : event.target.value}})
   }
