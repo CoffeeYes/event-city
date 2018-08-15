@@ -16,7 +16,6 @@ class App extends Component {
     super(props);
     this.state = {
       'searchText' : '',
-      'test_value_get': '',
       'city_arr_test' : [],
       'loading' : false,
       'city' : '',
@@ -50,13 +49,6 @@ class App extends Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.handleAddEvent = this.handleAddEvent.bind(this);
     this.postAddEvent = this.postAddEvent.bind(this);
-  }
-
-  //test connection to backend
-  componentDidMount() {
-    fetch('/api/test')
-      .then( res => res.json())
-      .then( data => this.setState({'test_value_get' : data.test_key}))
   }
 
   //update state of input searchbar
