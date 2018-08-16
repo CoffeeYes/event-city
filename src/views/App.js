@@ -17,7 +17,6 @@ class App extends Component {
     this.state = {
       'searchText' : '',
       'city_arr_test' : [],
-      'loading' : false,
       'city' : '',
       'city_events' : [],
       'current_event' : '',
@@ -54,12 +53,6 @@ class App extends Component {
   //update state of input searchbar
   updateSearchText(event) {
     this.setState({'searchText' : event.target.value},function() {
-      if(this.state.searchText.trim() !== '') {
-        this.setState({'loading' : true})
-      }
-      else {
-        this.setState({'loading' : false})
-      }
       fetch('/api/cities?query=' + this.state.searchText)
         .then( res => res.json())
         .then( data => this.setState({city_arr_test : data}))
