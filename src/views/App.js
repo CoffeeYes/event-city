@@ -16,7 +16,7 @@ class App extends Component {
     super(props);
     this.state = {
       'searchText' : '',
-      'city_arr_test' : [],
+      'search_city_result' : [],
       'city' : '',
       'city_events' : [],
       'current_event' : '',
@@ -55,13 +55,13 @@ class App extends Component {
     this.setState({'searchText' : event.target.value},function() {
       fetch('/api/cities?query=' + this.state.searchText)
         .then( res => res.json())
-        .then( data => this.setState({city_arr_test : data}))
+        .then( data => this.setState({search_city_result : data}))
     })
   }
 
   //handleclick on a searchresult when searching for cities
   handleClick(event,props) {
-    this.setState({'city_arr_test' : []},function() {
+    this.setState({'search_city_result' : []},function() {
       var city = window.location.href.split('/city/')[1]
       this.setState({'city' : city},function() {
         fetch('/api/city/' + this.state.city)
@@ -205,7 +205,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.city_arr_test} handleClick={this.handleClick} loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
+        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.search_city_result} handleClick={this.handleClick} loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
         <div className="content-container">
           <Route path='/city/*' render={(props) => (
             <EventResult list={this.state.city_events} handleClick={this.handleEventClick}/>
