@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
           <ul>
             {this.props.list.map((item,index) => {
               return (
+                //link each city search result item to a code which is matched on the backend to retrieve data onclick
                   <Link to={"/city/" + item.city} key={index} onClick={this.props.handleClick}>
                       <li key={index} className="result">{item.city}, {item.country}</li>
                   </Link>
