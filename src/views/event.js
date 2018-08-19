@@ -4,10 +4,10 @@ class Event extends Component {
   render() {
     return(
       <div className="event_data_container">
-        <h2>{this.props.data.title} - {this.props.data.location}</h2>
-        <p>{this.props.data.time} - {this.props.data.date}</p>
-        <p>{this.props.data.going} going</p>
-        <p>Hosted By : {this.props.data.user}</p>
+        <h2 className="content-title">{this.props.data.title} - {this.props.data.location}</h2>
+        <p className="content-time">{this.props.data.time} - {this.props.data.date}</p>
+        <p className="content-going">{this.props.data.going} going</p>
+        <p className="content-host">Hosted By : {this.props.data.user}</p>
       </div>
     )
   }
