@@ -30,6 +30,7 @@ router.post('/',function(req,res,next) {
         time : req.body.time,
         title : req.body.title,
         user : req.body.user,
+        going: 0,
         code : String(current_code)
       }
       //push data
