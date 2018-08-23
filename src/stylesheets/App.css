@@ -161,3 +161,7 @@ form input {
   font-weight: bold;
   font-size: 24px;
 }
+
+.content-going {
+  margin-bottom: 25em;
+}
