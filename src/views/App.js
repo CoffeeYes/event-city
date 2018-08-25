@@ -35,7 +35,8 @@ class App extends Component {
         'time': '',
         'title': '',
         'city_specific' : '',
-        'going' : 1
+        'going' : [],
+        'going_count' : 0,
       }
     }
 
