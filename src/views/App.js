@@ -203,6 +203,18 @@ class App extends Component {
     })
   }
 
+  handleGoing() {
+    if(this.state.loggedIn == false) {
+      fetch('/add-going',{
+        method : 'POST',
+        headers : {
+          'Content-type' : 'application/json'
+        },
+        body : JSON.stringify(this.state.user_data.user)
+      })
+    }
+  }
+
   render() {
     return(
       <div>
