@@ -204,7 +204,7 @@ class App extends Component {
   }
 
   handleGoing() {
-    if(this.state.loggedIn == false) {
+    if(this.state.loggedIn == true) {
       fetch('/add-going',{
         method : 'POST',
         headers : {
