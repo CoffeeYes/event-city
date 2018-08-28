@@ -25,6 +25,7 @@ var events = require('./routes/event');
 var login = require('./routes/login');
 var signup = require('./routes/signup');
 var addEvent = require('./routes/add-event');
+var addGoing = require('./routes/add-going');
 
 //routing
 app.use('/api',api)
@@ -32,6 +33,7 @@ app.use('/event/',events)
 app.use('/login',login)
 app.use('/signup',signup)
 app.use('/add-event',addEvent)
+app.use('/add-going',addGoing)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
