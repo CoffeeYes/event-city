@@ -205,12 +205,16 @@ class App extends Component {
 
   handleGoing() {
     if(this.state.loggedIn == true) {
+      var data = {
+        user: this.state.user_data.user,
+        city: this.state.city
+      }
       fetch('/add-going',{
         method : 'POST',
         headers : {
           'Content-type' : 'application/json'
         },
-        body : JSON.stringify(this.state.user_data.user)
+        body : JSON.stringify(data)
       })
     }
   }
