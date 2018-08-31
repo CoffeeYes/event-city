@@ -207,7 +207,8 @@ class App extends Component {
     if(this.state.loggedIn == true) {
       var data = {
         user: this.state.user_data.user,
-        city: this.state.city
+        city: this.state.city,
+        id: this.state.current_event
       }
       fetch('/add-going',{
         method : 'POST',
