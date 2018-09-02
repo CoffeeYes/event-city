@@ -176,8 +176,10 @@ class App extends Component {
     event.preventDefault()
     //empty check
     for(var item in this.state.add_event_data) {
-      if(this.state.add_event_data[item].trim() === "") {
-        return this.setState({error : "fields cannot be empty"})
+      if(item != 'going' && item != 'going_count') {
+        if(this.state.add_event_data[item].trim() === "") {
+          return this.setState({error : "fields cannot be empty"})
+        }
       }
     }
     //make sure user is logged in before adding event
