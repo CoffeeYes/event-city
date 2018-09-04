@@ -15,7 +15,6 @@ router.get('/', function(req, res, next) {
         var result = data[0].events;
         for(var item in result) {
           if (result[item].code == query) {
-            console.log(result[item])
             res.send(result[item])
           }
         }
