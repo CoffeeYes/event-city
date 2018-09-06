@@ -27,6 +27,7 @@ class App extends Component {
         'email' : '',
         'pass1' : '',
         'pass2' : '',
+        'events' : [],
       },
       'loggedIn' : JSON.parse(localStorage.getItem("loggedIn")),
       'add_event_data' : {
@@ -209,7 +210,6 @@ class App extends Component {
     if(this.state.loggedIn == true) {
       var data = {
         user: this.state.user_data.user,
-        city: this.state.city,
         id: this.state.current_event
       }
       fetch('/add-going',{
