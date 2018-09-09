@@ -231,10 +231,10 @@ class App extends Component {
         <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.search_city_result} handleClick={this.handleClick} loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
         <div className="content-container">
           <Route path='/city/*' render={(props) => (
-            <EventResult list={this.state.city_events} handleClick={this.handleEventClick} handleGoing={this.handleGoing} error={this.state.error}/>
+            <EventResult list={this.state.city_events} handleClick={this.handleEventClick} error={this.state.error}/>
           )}/>
           <Route path='/event/*' render={(props) => (
-            <EventComponent data={this.state.event_data}/>
+            <EventComponent data={this.state.event_data} handleGoing={this.handleGoing}/>
           )}/>
           <Route exact path='/login' render={(props) => (
             <Login handleChange={this.handleUserState} error={this.state.error} handleLogin={this.handleLogin} loggedIn={this.state.loggedIn}/>

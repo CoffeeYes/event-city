@@ -6,8 +6,9 @@ var Oid = require('mongodb').ObjectID;
 
 router.post('/',function(req,res,next) {
   mClient.connect(connect.mongo.url,function(error,client) {
+    var id = req.body.id
     var database = client.db('pinterest-clone');
-    database.collection('users').update({user : req.body.user},{$push : {events : req.body.id}})
+    database.collection('user-data').update({username : req.body.user},{$push : {going : id}})
   })
 })
 

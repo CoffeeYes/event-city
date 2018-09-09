@@ -26,7 +26,8 @@ router.post('/',function(req,res,next) {
               'username' : req.body.user,
               'email' : req.body.email,
               'password' : req.body.pass1,
-              'events' : []
+              'events' : [],
+              'going' : []
             })
           }
         })
