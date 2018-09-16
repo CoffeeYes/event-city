@@ -12,7 +12,7 @@ router.post('/',function(req,res,next) {
       if(error)throw error;
       if(data[0].going.indexOf(req.body.id) == -1) {
         database.collection('user-data').update({username : req.body.user},{$push : {going : id}})
-        database.collection('cities').aggregate([{$match : {city: req.body.city}},{$unwind : "$events"}]).update({code : req.body.id},{$inc : {going_count : 1}})
+        database.collection('cities').aggregate([{$match : {city: req.body.city}},{$unwind : "$events"},{$match : {code: req.body.id}},{$inc : {going_count : 1}}])
       }
     })
   })
