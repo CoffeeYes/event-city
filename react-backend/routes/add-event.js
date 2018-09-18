@@ -25,6 +25,7 @@ router.post('/',function(req,res,next) {
       }
       //data to be added to cities' documents, this is what gets displayed on event page
       var data_city = {
+        city: req.body.city_specific,
         date : req.body.date,
         location : req.body.location,
         time : req.body.time,
@@ -35,7 +36,7 @@ router.post('/',function(req,res,next) {
       }
       //push data
       database.collection('user-data').update({username : req.body.user},{$push : {events : data_user}})
-      database.collection('cities').update({city : req.body.city_specific},{$push : {events : data_city}})
+      database.collection('events').insertOne(data_city)
     })
   })
 })
