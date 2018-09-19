@@ -11,12 +11,9 @@ router.get('/', function(req, res, next) {
       if(error) throw error;
       var database = client.db(connect.mongo.db_name);
       //match event based on ID
-      database.collection('cities').find({events : {$elemMatch : {code : query}}}).toArray(function(error,data) {
+      database.collection('events').find({code : query}).toArray(function(error,data) {
         var result = data[0].events;
-        for(var item in result) {
-          if (result[item].code == query) {
-            res.send(result[item])
-          }
+        res.send(result)
         }
       })
     })
