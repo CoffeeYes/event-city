@@ -11,7 +11,8 @@ router.post('/',function(req,res,next) {
     database.collection('user-data').find({username : req.body.user}).toArray(function(error,data) {
       if(error)throw error;
       if(data[0].going.indexOf(req.body.id) == -1) {
-        database.collection('user-data').update({username : req.body.user},{$push : {going : id}})
+        database.collection('events').update({code : req.body.id},{$push : {going : req.body.user}});
+        database.collection('events').update({code : req.body.id},{$inc : {going_count : 1});
       }
     })
   })
