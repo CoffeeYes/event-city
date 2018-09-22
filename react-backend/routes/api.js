@@ -34,9 +34,9 @@ router.get('/city/*',function(req,res,next) {
   mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;
     var database = client.db('pinterest-clone');
-    database.collection('cities').find({'city': city}).toArray(function(error,data) {
+    database.collection('events').find({'city': city}).toArray(function(error,data) {
       if(error)throw error;
-      res.send(data[0].events)
+      res.send(data)
     })
   })
 })
