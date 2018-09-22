@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
       var database = client.db(connect.mongo.db_name);
       //match event based on ID
       database.collection('events').find({code : query}).toArray(function(error,data) {
-        var result = data[0].events;
+        var result = data[0];
         res.send(result)
         })
     })
