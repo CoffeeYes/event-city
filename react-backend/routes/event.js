@@ -14,8 +14,7 @@ router.get('/', function(req, res, next) {
       database.collection('events').find({code : query}).toArray(function(error,data) {
         var result = data[0].events;
         res.send(result)
-        }
-      })
+        })
     })
 });
 
