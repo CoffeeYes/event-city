@@ -175,6 +175,8 @@ class App extends Component {
 
   postAddEvent(event) {
     event.preventDefault()
+
+    this.setState({error : ''})
     //empty check
     for(var item in this.state.add_event_data) {
       if(item != 'going' && item != 'going_count') {
