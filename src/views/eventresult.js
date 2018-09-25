@@ -12,7 +12,7 @@ import {Link} from 'react-router-dom';
                     <div className="event">
                       <h2>{item.title} - {item.location}</h2>
                       <p>{item.time}</p>
-                      <p>{item.going} going</p>
+                      <p>{item.going_count} going</p>
                       <p>{item.date}</p>
                       <p>Hosted By : {item.user}</p>
                     </div>
