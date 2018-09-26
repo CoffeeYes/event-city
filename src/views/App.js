@@ -189,23 +189,25 @@ class App extends Component {
     if(this.state.loggedIn === false) {
       return this.setState({error : "You are not logged in"})
     }
-    //parse data to be pushed
-    var data = {
-      date : this.state.add_event_data.date,
-      location : this.state.add_event_data.location,
-      time : this.state.add_event_data.time,
-      title : this.state.add_event_data.title,
-      user : this.state.user_data.user,
-      city_specific : this.state.add_event_data.city_specific
+    else {
+      //parse data to be pushed
+      var data = {
+        date : this.state.add_event_data.date,
+        location : this.state.add_event_data.location,
+        time : this.state.add_event_data.time,
+        title : this.state.add_event_data.title,
+        user : this.state.user_data.user,
+        city_specific : this.state.add_event_data.city_specific
+      }
+      //post to backend
+      fetch('/add-event',{
+        method : 'POST',
+        headers : {
+          'Content-type' : 'application/json'
+        },
+        body : JSON.stringify(data)
+      })
     }
-    //post to backend
-    fetch('/add-event',{
-      method : 'POST',
-      headers : {
-        'Content-type' : 'application/json'
-      },
-      body : JSON.stringify(data)
-    })
   }
 
   handleGoing() {
