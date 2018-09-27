@@ -224,6 +224,7 @@ class App extends Component {
         },
         body : JSON.stringify(data)
       })
+      this.setState({'event_data' : {...this.state.event_data, 'going_count' : this.state.event_data.going_count + 1}})
     }
     else {
       this.setState({error: "You are not logged in"})
