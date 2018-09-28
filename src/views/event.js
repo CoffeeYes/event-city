@@ -9,7 +9,7 @@ class Event extends Component {
         <p className="content-going">{this.props.data.going_count} going</p>
         <p className="content-host">Hosted By : {this.props.data.user}</p>
         <p className="error">{this.props.error}</p>
-        <button className="add-going" name="addGoing" onClick={this.props.handleGoing}>Im Going</button>
+        <button className="add-going" name="addGoing" onClick={this.props.handleGoing}>{this.props.going_text}</button>
       </div>
     )
   }

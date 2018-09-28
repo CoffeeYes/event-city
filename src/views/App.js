@@ -37,7 +37,8 @@ class App extends Component {
         'title': '',
         'city_specific' : '',
         'going' : 0,
-      }
+      },
+      'going_text' : "I'm Going",
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
@@ -240,7 +241,7 @@ class App extends Component {
             <EventResult list={this.state.city_events} handleClick={this.handleEventClick} error={this.state.error}/>
           )}/>
           <Route path='/event/*' render={(props) => (
-            <EventComponent data={this.state.event_data} handleGoing={this.handleGoing}/>
+            <EventComponent data={this.state.event_data} handleGoing={this.handleGoing} going_text={this.state.going_text}/>
           )}/>
           <Route exact path='/login' render={(props) => (
             <Login handleChange={this.handleUserState} error={this.state.error} handleLogin={this.handleLogin} loggedIn={this.state.loggedIn}/>
