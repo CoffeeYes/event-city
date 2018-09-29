@@ -39,6 +39,7 @@ class App extends Component {
         'going' : 0,
       },
       'going_text' : "I'm Going",
+      'going_to_event' : false
     }
 
     this.updateSearchText = this.updateSearchText.bind(this);
