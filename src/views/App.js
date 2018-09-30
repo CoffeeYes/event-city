@@ -82,6 +82,9 @@ class App extends Component {
         .then(res => res.json())
         .then( data => this.setState({'event_data' : data}))
     })
+    if(this.state.user_data.events.indexOf(this.state.current_event) != -1) {
+      this.setState({going_to_event : true})
+    }
   }
 
   //handle backend data transfer of userinfo for signing up
