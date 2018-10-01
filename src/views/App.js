@@ -84,6 +84,7 @@ class App extends Component {
     })
     if(this.state.user_data.events.indexOf(this.state.current_event) != -1) {
       this.setState({going_to_event : true})
+      this.setState({going_text : "I'm not going"})
     }
   }
 
