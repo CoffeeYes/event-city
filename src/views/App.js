@@ -27,7 +27,7 @@ class App extends Component {
         'email' : '',
         'pass1' : '',
         'pass2' : '',
-        'events' : [],
+        'events' : localStorage.getItem("events") || [],
       },
       'loggedIn' : JSON.parse(localStorage.getItem("loggedIn")),
       'add_event_data' : {
@@ -82,7 +82,7 @@ class App extends Component {
         .then(res => res.json())
         .then( data => this.setState({'event_data' : data}))
     })
-    if(this.state.user_data.events.indexOf(this.state.current_event) != -1) {
+    if(this.state.user_data.events.indexOf(eventID) != -1) {
       this.setState({going_to_event : true})
       this.setState({going_text : "I'm not going"})
     }
@@ -152,6 +152,7 @@ class App extends Component {
           history.push('/')
           localStorage.setItem("loggedIn",true);
           localStorage.setItem("user",this.state.user_data.user);
+          localStorage.setItem("events",data.events);
         }
       })
     })

@@ -16,7 +16,7 @@ router.post('/',function(req,res,next) {
       }
       else {
         if(req.body.pass1 == data[0].password) {
-          res.send({error: '',loggedIn : true})
+          res.send({error: '',loggedIn : true,events : data[0].going})
         }
         else {
           res.send({error: 'Incorrect password',loggedIn : false})
