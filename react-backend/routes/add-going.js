@@ -15,6 +15,10 @@ router.post('/',function(req,res,next) {
         database.collection('events').update({code : req.body.id},{$inc : {going_count : 1}});
         database.collection('user_data').update({username : req.body.user},{$push : {going : req.body.id}})
       }
+      else {
+        database.collection('events').update({code : req.body.id},{$pull : {going : req.body.user}});
+        database.collection('events').update({code : req.body.id},{$inc : {going_count : -1}});
+      }
     })
   })
 })
