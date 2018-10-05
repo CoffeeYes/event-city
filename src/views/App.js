@@ -231,6 +231,18 @@ class App extends Component {
         },
         body : JSON.stringify(data)
       })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if(data.status == "inc") {
+          this.setState({'event_data' : {...this.state.event_data,"going_count" : this.state.event_data.going_count + 1}})
+          this.setState({going_text : "I'm not Going"})
+        }
+        else {
+          this.setState({'event_data' : {...this.state.event_data,"going_count" : this.state.event_data.going_count - 1}})
+          this.setState({going_text : "I'm Going"})
+        }
+      })
     }
     else {
       this.setState({error: "You are not logged in"})
