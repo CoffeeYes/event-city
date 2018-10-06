@@ -233,7 +233,7 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        //update going text and count on frontend after backend response
         if(data.status == "inc") {
           this.setState({'event_data' : {...this.state.event_data,"going_count" : this.state.event_data.going_count + 1}})
           this.setState({going_text : "I'm not Going"})
