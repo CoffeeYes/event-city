@@ -104,7 +104,7 @@ class App extends Component {
     if(this.state.user_data.pass1 !== this.state.user_data.pass2) {
       return this.setState({error: "Passwords do not match"})
     }
-
+    //match email against regex
     if(email_regex.test(this.state.user_data.email) === false) {
       return this.setState({error: "Invalid email address"})
     }
@@ -117,6 +117,7 @@ class App extends Component {
       body: JSON.stringify(this.state.user_data)
     })
     .then(res => res.json())
+    //display error based on backend response
     .then(data => {
       this.setState({error : data.error})
     })
@@ -143,7 +144,7 @@ class App extends Component {
         pass1 : this.state.user_data.pass1
       })
     })
-    //handle backend response
+    //Update state using backend response
     .then(res => res.json())
     .then(data => {
       this.setState({error : data.error})
@@ -233,7 +234,7 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        //update going text and count on frontend after backend response
+        //update going text and count on frontend based on backend response
         if(data.status == "inc") {
           this.setState({'event_data' : {...this.state.event_data,"going_count" : this.state.event_data.going_count + 1}})
           this.setState({going_text : "I'm not Going"})
