@@ -15,6 +15,7 @@ router.post('/',function(req,res,next) {
         res.send({error : "User not found",loggedIn : false});
       }
       else {
+        //send loggedin status flag and data to frontend based on PW match
         if(req.body.pass1 == data[0].password) {
           res.send({error: '',loggedIn : true,events : data[0].going})
         }

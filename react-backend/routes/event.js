@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     mClient.connect(connect.mongo.url,function(error,client) {
       if(error) throw error;
       var database = client.db(connect.mongo.db_name);
-      //match event based on ID
+      //match event based on ID and send data to frontend
       database.collection('events').find({code : query}).toArray(function(error,data) {
         var result = data[0];
         res.send(result)
