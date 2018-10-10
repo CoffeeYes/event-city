@@ -12,16 +12,19 @@ router.post('/',function(req,res,next) {
     var database = client.db('pinterest-clone');
     database.collection('user-data').find({username : data.user}).toArray(function(error,data) {
       if(error)throw error;
+      //existing user check
       if(data != '') {
         return res.send({error: "User already exists"})
       }
       else {
         database.collection('user-data').find({email : data.email}).toArray(function(error,data) {
           if(error)throw error;
+          //email check
           if(data != '') {
             return res.send({error: "Email is already in use"})
           }
           else {
+            //create new user document
             database.collection('user-data').insertOne({
               'username' : req.body.user,
               'email' : req.body.email,
