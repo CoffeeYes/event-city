@@ -219,6 +219,7 @@ class App extends Component {
   }
 
   handleGoing() {
+    //if user is currently logged in
     if(this.state.loggedIn == true) {
       var data = {
         user: this.state.user_data.user,
@@ -240,6 +241,7 @@ class App extends Component {
           this.setState({going_text : "I'm not Going"})
         }
         else {
+          //decrement and reset text in case user was going before click
           this.setState({'event_data' : {...this.state.event_data,"going_count" : this.state.event_data.going_count - 1}})
           this.setState({going_text : "I'm Going"})
         }
