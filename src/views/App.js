@@ -80,12 +80,13 @@ class App extends Component {
     this.setState({'current_event' : eventID},function() {
       fetch('/event/?query=' + this.state.current_event)
         .then(res => res.json())
-        .then( data => this.setState({'event_data' : data}))
+        .then( data => this.setState({'event_data' : data},function() {
+          if(this.state.user_data.events.indexOf(eventID) != -1) {
+            this.setState({going_to_event : true})
+            this.setState({going_text : "I'm not Going"})
+          }
+        }))
     })
-    if(this.state.user_data.events.indexOf(eventID) != -1) {
-      this.setState({going_to_event : true})
-      this.setState({going_text : "I'm not going"})
-    }
   }
 
   //handle backend data transfer of userinfo for signing up
