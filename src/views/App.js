@@ -27,7 +27,7 @@ class App extends Component {
         'email' : '',
         'pass1' : '',
         'pass2' : '',
-        'events' : localStorage.getItem("events") || [],
+        'events' : [],
       },
       'loggedIn' : JSON.parse(localStorage.getItem("loggedIn")),
       'add_event_data' : {
@@ -239,12 +239,12 @@ class App extends Component {
         //update going text and count on frontend based on backend response
         if(data.status == "inc") {
           this.setState({'event_data' : {...this.state.event_data,"going_count" : this.state.event_data.going_count + 1}})
-          this.setState({going_text : "I'm not Going"})
+          this.setState({going_text : "I'm not Going",going_to_event: true})
         }
         else {
           //decrement and reset text in case user was going before click
           this.setState({'event_data' : {...this.state.event_data,"going_count" : this.state.event_data.going_count - 1}})
-          this.setState({going_text : "I'm Going"})
+          this.setState({going_text : "I'm Going",going_to_event: false})
         }
       })
     }
