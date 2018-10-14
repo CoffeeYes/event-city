@@ -154,7 +154,6 @@ class App extends Component {
           history.push('/')
           localStorage.setItem("loggedIn",true);
           localStorage.setItem("user",this.state.user_data.user);
-          localStorage.setItem("events",data.events);
         }
       })
     })
