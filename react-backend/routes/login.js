@@ -9,9 +9,11 @@ router.post('/',function(req,res,next) {
   mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;
     var database = client.db('pinterest-clone');
+    //match username
     database.collection('user-data').find({username : data.user}).toArray(function(error,data) {
       if(error)throw error;
       if(data == '') {
+        //send error to frontend
         res.send({error : "User not found",loggedIn : false});
       }
       else {
@@ -20,6 +22,7 @@ router.post('/',function(req,res,next) {
           res.send({error: '',loggedIn : true,events : data[0].going})
         }
         else {
+          //send error to frontend
           res.send({error: 'Incorrect password',loggedIn : false})
         }
       }
