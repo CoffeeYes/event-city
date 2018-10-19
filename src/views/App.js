@@ -38,7 +38,7 @@ class App extends Component {
         'city_specific' : '',
         'going' : 0,
       },
-      'going_text' : "I'm Going",
+      'going_text' : "",
       'going_to_event' : false
     }
 
@@ -81,9 +81,13 @@ class App extends Component {
       fetch('/event/?query=' + this.state.current_event)
         .then(res => res.json())
         .then( data => this.setState({'event_data' : data},function() {
-          if(this.state.user_data.events.indexOf(eventID) != -1) {
+          if(this.state.event_data.going.indexOf(this.state.user_data.user) != -1) {
             this.setState({going_to_event : true})
             this.setState({going_text : "I'm not Going"})
+          }
+          else {
+            this.setState({going_to_event : false})
+            this.setState({going_text : "I'm Going"})
           }
         }))
     })
