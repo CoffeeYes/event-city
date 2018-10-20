@@ -129,6 +129,7 @@ a {
   padding-right: 1vw;
   height: 6vh;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .loginContainer{
