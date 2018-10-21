@@ -177,3 +177,9 @@ form input {
   width: 7vw;
   height: 3vh;
 }
+
+.add-going:hover {
+  transition: 1s;
+  color: white;
+  background-color: blue;
+}
