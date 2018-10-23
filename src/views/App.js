@@ -52,6 +52,7 @@ class App extends Component {
     this.handleAddEvent = this.handleAddEvent.bind(this);
     this.postAddEvent = this.postAddEvent.bind(this);
     this.handleGoing = this.handleGoing.bind(this);
+    this.myeventsclick
   }
 
   //update state of input searchbar
@@ -256,10 +257,14 @@ class App extends Component {
     }
   }
 
+  myeventsclick() {
+
+  }
+
   render() {
     return(
       <div>
-        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.search_city_result} handleClick={this.handleClick} loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
+        <NavBar handleChange={this.updateSearchText} value={this.state.searchText} list={this.state.search_city_result} handleClick={this.handleClick} loggedIn={this.state.loggedIn} logout={this.handleLogout} myevents={this.myeventsclick}/>
         <div className="content-container">
           <Route path='/city/*' render={(props) => (
             <EventResult list={this.state.city_events} handleClick={this.handleEventClick} error={this.state.error}/>
