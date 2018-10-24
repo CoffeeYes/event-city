@@ -258,7 +258,13 @@ class App extends Component {
   }
 
   myeventsclick() {
-
+      fetch('/event/userevents',{
+        method: 'POST'
+        headers : {
+          'Content-type' : 'application/json'
+        },
+        body : JSON.stringify(this.state.user_data.user)
+      })
   }
 
   render() {
