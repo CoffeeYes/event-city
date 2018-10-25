@@ -52,7 +52,7 @@ class App extends Component {
     this.handleAddEvent = this.handleAddEvent.bind(this);
     this.postAddEvent = this.postAddEvent.bind(this);
     this.handleGoing = this.handleGoing.bind(this);
-    this.myeventsclick
+    this.myeventsclick = this.myeventsclick.bind(this);
   }
 
   //update state of input searchbar
@@ -258,12 +258,15 @@ class App extends Component {
   }
 
   myeventsclick() {
+      var data = {
+        user: this.state.user_data.user
+      }
       fetch('/event/userevents',{
-        method: 'POST'
+        method: 'POST',
         headers : {
           'Content-type' : 'application/json'
         },
-        body : JSON.stringify(this.state.user_data.user)
+        body : JSON.stringify(data)
       })
   }
 

@@ -13,9 +13,13 @@ router.get('/', function(req, res, next) {
       //match event based on ID and send data to frontend
       database.collection('events').find({code : query}).toArray(function(error,data) {
         var result = data[0];
-        res.send(result)
+        res.send(result);
         })
     })
 });
+
+router.post('/userevents',function(req,res,next) {
+  console.log(req.body)
+})
 
 module.exports = router;
