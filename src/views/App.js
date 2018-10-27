@@ -270,7 +270,7 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        this.setState({'user_data' : {...this.state.user_data,'events' : data}})
       })
   }
 

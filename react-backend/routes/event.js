@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/userevents',function(req,res,next) {
-  console.log(req.body)
   mClient.connect(connect.mongo.url,function(error,client) {
     if(error)throw error;
     var database = client.db(connect.mongo.db_name);
