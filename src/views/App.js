@@ -28,7 +28,7 @@ class App extends Component {
         'email' : '',
         'pass1' : '',
         'pass2' : '',
-        'events' : [],
+        'events' : localStorage.getItem("userEvents") || [],
       },
       'loggedIn' : JSON.parse(localStorage.getItem("loggedIn")),
       'add_event_data' : {
@@ -271,7 +271,7 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        this.setState({'user_data' : {...this.state.user_data,'events' : data}})
+        localStorage.setItem("userEvents",data);
       })
   }
 
