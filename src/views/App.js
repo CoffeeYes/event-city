@@ -8,7 +8,7 @@ import Login from './login';
 import Signup from './signup';
 import NavBar from './navbar';
 import AddEvent from './addEvent';
-import myEvents from './myEvents';
+import MyEvents from './myEvents';
 
 const history = createBrowserHistory()
 
@@ -296,7 +296,7 @@ class App extends Component {
             <AddEvent handleChange={this.handleAddEvent} postAddEvent={this.postAddEvent} error={this.state.error}/>
           )}/>
           <Route exact path='/my-events' render={(props) => (
-            <myEvents/>
+            <MyEvents events={this.state.user_data.events}/>
           )}/>
         </div>
       </div>
