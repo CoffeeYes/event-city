@@ -296,7 +296,7 @@ class App extends Component {
             <AddEvent handleChange={this.handleAddEvent} postAddEvent={this.postAddEvent} error={this.state.error}/>
           )}/>
           <Route exact path='/my-events' render={(props) => (
-            <MyEvents events={this.state.user_data.events}/>
+            <MyEvents list={this.state.user_data.events}/>
           )}/>
         </div>
       </div>
