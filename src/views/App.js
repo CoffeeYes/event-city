@@ -28,7 +28,7 @@ class App extends Component {
         'email' : '',
         'pass1' : '',
         'pass2' : '',
-        'events' : localStorage.getItem("userEvents") || [],
+        'events' : JSON.parse(localStorage.getItem("userEvents")) || [],
       },
       'loggedIn' : JSON.parse(localStorage.getItem("loggedIn")),
       'add_event_data' : {
@@ -258,7 +258,8 @@ class App extends Component {
     }
   }
 
-  myeventsclick() {
+  myeventsclick(event) {
+      event.preventDefault();
       var data = {
         user: this.state.user_data.user
       }
@@ -271,7 +272,8 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("userEvents",data);
+        this.setState({'user_data' : {...this.state.user_data,"events" : data}})
+        localStorage.setItem("userEvents",JSON.stringify(data));
       })
   }
 
