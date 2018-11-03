@@ -259,7 +259,6 @@ class App extends Component {
   }
 
   myeventsclick(event) {
-      event.preventDefault();
       var data = {
         user: this.state.user_data.user
       }

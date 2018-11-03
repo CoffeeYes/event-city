@@ -183,3 +183,9 @@ form input {
   color: white;
   background-color: blue;
 }
+
+.delete-event {
+  display: inline;
+  float: right;
+  margin-top: 7px;
+}
