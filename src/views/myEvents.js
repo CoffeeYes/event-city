@@ -13,7 +13,7 @@ import React, { Component } from 'react';
                       <p>{item.going_count} going</p>
                       <p>{item.date}</p>
                       <p>Hosted By : {item.user}</p>
-                      <button className="delete-event">x</button>
+                      <button className="delete-event" name="delete" value={item.id} onClick={this.props.handle_delete}>x</button>
                     </div>
             )
           })}

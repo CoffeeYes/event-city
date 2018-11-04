@@ -54,6 +54,7 @@ class App extends Component {
     this.postAddEvent = this.postAddEvent.bind(this);
     this.handleGoing = this.handleGoing.bind(this);
     this.myeventsclick = this.myeventsclick.bind(this);
+    this.handle_delete = this.handle_delete.bind(this);
   }
 
   //update state of input searchbar
@@ -276,6 +277,10 @@ class App extends Component {
       })
   }
 
+  handle_delete(){
+
+  }
+
   render() {
     return(
       <div>
@@ -297,7 +302,7 @@ class App extends Component {
             <AddEvent handleChange={this.handleAddEvent} postAddEvent={this.postAddEvent} error={this.state.error}/>
           )}/>
           <Route exact path='/my-events' render={(props) => (
-            <MyEvents list={this.state.user_data.events}/>
+            <MyEvents list={this.state.user_data.events} handle_delete={this.handle_delete}/>
           )}/>
         </div>
       </div>
