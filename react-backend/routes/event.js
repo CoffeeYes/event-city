@@ -28,4 +28,8 @@ router.post('/userevents',function(req,res,next) {
   })
 })
 
+router.post('/delete-event',function(req,res,next) {
+  console.log(req.body)
+})
+
 module.exports = router;

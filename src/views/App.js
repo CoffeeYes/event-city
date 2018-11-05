@@ -277,8 +277,15 @@ class App extends Component {
       })
   }
 
-  handle_delete(){
-
+  handle_delete(event){
+    event.preventDefault();
+    fetch('/event/delete-event',{
+      method: 'POST',
+      headers : {
+        'Content-type' : 'application/json'
+      },
+      body : JSON.stringify(event.target.value)
+    })
   }
 
   render() {
