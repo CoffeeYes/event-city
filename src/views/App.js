@@ -279,12 +279,15 @@ class App extends Component {
 
   handle_delete(event){
     event.preventDefault();
+    var data = {
+      event_code : event.target.value
+    }
     fetch('/event/delete-event',{
       method: 'POST',
       headers : {
         'Content-type' : 'application/json'
       },
-      body : JSON.stringify(event.target.value)
+      body : JSON.stringify(data)
     })
   }
 
