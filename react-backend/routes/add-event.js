@@ -14,14 +14,15 @@ router.post('/',function(req,res,next) {
       if(error)throw error;
       var current_code = data[0]["event-code"];
 
-      database.collection("codes").update({_id : Oid("5b66f809e7179a4c61391c03")},{$inc : {"event-code" : 1}})
+      database.collection("codes").updateOne({_id : Oid("5b66f809e7179a4c61391c03")},{$inc : {"event-code" : 1}})
       //data to be added to users documents
       var data_user = {
         date : req.body.date,
         location : req.body.location,
         time : req.body.time,
         title : req.body.title,
-        city: req.body.city_specific
+        city: req.body.city_specific,
+        code: String(current_code)
       }
       //data to be added to cities' documents, this is what gets displayed on event page
       var data_city = {
@@ -35,7 +36,7 @@ router.post('/',function(req,res,next) {
         code : String(current_code)
       }
       //push data
-      database.collection('user-data').update({username : req.body.user},{$push : {events : data_user}})
+      database.collection('user-data').updateOne({username : req.body.user},{$push : {events : data_user}})
       database.collection('events').insertOne(data_city)
     })
   })

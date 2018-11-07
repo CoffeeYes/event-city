@@ -185,7 +185,5 @@ form input {
 }
 
 .delete-event {
-  display: inline;
-  float: right;
-  margin-top: 7px;
+  float:right;
 }
