@@ -7,13 +7,12 @@ import React, { Component } from 'react';
         <ul>
           {this.props.list.map((item,index) => {
             return (
-                    <div className="event">
+                    <div className="event" key={index}>
                       <button className="delete-event" name="delete" value={item.code} onClick={this.props.handle_delete}>x</button>
                       <h2>{item.title} - {item.location}</h2>
                       <p>{item.time}</p>
                       <p>{item.going_count} going</p>
                       <p>{item.date}</p>
-                      <p>Hosted By : {item.user}</p>
                     </div>
             )
           })}
