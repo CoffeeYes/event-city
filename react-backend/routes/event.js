@@ -30,6 +30,13 @@ router.post('/userevents',function(req,res,next) {
 
 router.post('/delete-event',function(req,res,next) {
   console.log(req.body)
+  var code = parseInt(req.body.code);
+  mClient.connect(connect.mongo.url,function(error,client) {
+    if(error)throw error;
+    var database = client.db(connect.mongo.db_name);
+
+    database.collection('events').deleteOne({code : code});
+  })
 })
 
 module.exports = router;
