@@ -281,7 +281,8 @@ class App extends Component {
     event.preventDefault();
     console.log(event.currentTarget.value)
     var data = {
-      event_code : event.currentTarget.value
+      event_code : event.currentTarget.value,
+      username : this.state.user_data.user
     }
     fetch('/event/delete-event',{
       method: 'POST',
